@@ -16,16 +16,15 @@ import org.opendma.api.OdmaObject;
 import org.opendma.api.OdmaProperty;
 import org.opendma.api.OdmaPropertyInfo;
 import org.opendma.api.OdmaQName;
-import org.opendma.api.OdmaRepository;
 import org.opendma.api.collections.OdmaObjectEnumeration;
 import org.opendma.api.collections.OdmaPropertyInfoEnumeration;
 
-public class Lession7_PrintObjectProperties
+public class Lession12_PrintSampleDocumentProperties
 {
 
     public static void main(String[] args)
     {
-        Lession7_PrintObjectProperties lession1 = new Lession7_PrintObjectProperties();
+        Lession12_PrintSampleDocumentProperties lession1 = new Lession12_PrintSampleDocumentProperties();
         try
         {
             lession1.run();
@@ -49,22 +48,13 @@ public class Lession7_PrintObjectProperties
         try
         {
 
-            // get the repository by ID
+            // get the SampleDocument by ID
             OdmaId repoId = new OdmaId("sample-repo");
-            OdmaRepository repo = session.getRepository(repoId);
+            OdmaId sampleDocumentId = new OdmaId("sample-document-a1");
+            OdmaObject obj = session.getObject(repoId, sampleDocumentId, new OdmaQName("tutorial","SampleDocument"), null);
             
-            // print out repository
-            printObjectProperties(repo);
-
-            // print inheritance hierarchy
-            System.out.println();
-            System.out.println("Inheritance hierarchy:");
-            OdmaClass clazz = repo.getOdmaClass();
-            while(clazz != null)
-            {
-                System.out.println(clazz.getQName());
-                clazz = clazz.getParent();
-            }
+            // print out properties of Sample Document
+            printObjectProperties(obj);
             
         }
         finally

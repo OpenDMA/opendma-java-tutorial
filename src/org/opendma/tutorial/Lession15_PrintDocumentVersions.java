@@ -1,0 +1,90 @@
+package org.opendma.tutorial;
+
+import java.util.Iterator;
+
+import org.opendma.AdaptorManager;
+import org.opendma.OdmaSession;
+import org.opendma.api.OdmaDocument;
+import org.opendma.api.OdmaId;
+import org.opendma.api.OdmaQName;
+import org.opendma.api.OdmaVersionCollection;
+import org.opendma.api.collections.OdmaDocumentEnumeration;
+
+public class Lession15_PrintDocumentVersions
+{
+
+    public static void main(String[] args)
+    {
+        Lession15_PrintDocumentVersions lession1 = new Lession15_PrintDocumentVersions();
+        try
+        {
+            lession1.run();
+        }
+        catch(Exception e)
+        {
+            System.out.println("Error executing tutorial code:");
+            e.printStackTrace(System.out);
+        }
+    }
+    
+    private void run() throws Exception
+    {
+
+        // register Adaptor
+        Class.forName("com.xaldon.opendma.xmlrepo.Adaptor");
+
+        // get Session
+        OdmaSession session =
+            AdaptorManager.getSession("xmlrepo:SampleRepository.xml", "tutorial", "tutorialpw");
+        try
+        {
+
+            // get the SampleDocument by ID
+            OdmaId repoId = new OdmaId("sample-repo");
+            OdmaId sampleDocumentId = new OdmaId("sample-document-a1");
+            OdmaDocument doc = (OdmaDocument)session.getObject(repoId, sampleDocumentId, new OdmaQName("tutorial","SampleDocument"), null);
+            
+            // print out properties of Sample Document
+            printContentElements(doc);
+            
+        }
+        finally
+        {
+            // always close the session
+            session.close();
+        }
+
+    }
+    
+    public void printContentElements(OdmaDocument doc)
+    {
+        System.out.println("Content Elements of Document \"" + doc.getTitle() + "\":");
+        OdmaVersionCollection versionCollection = doc.getVersionCollection();
+        if(versionCollection != null)
+        {
+            OdmaDocument latest = versionCollection.getLatest();
+            OdmaDocument released = versionCollection.getReleased();
+            OdmaDocument inProgress = versionCollection.getInProgress();
+            System.out.println("  Latest: "+(latest==null?"null":latest.getVersion()+" ID: "+latest.getId()));
+            System.out.println("  Released: "+(released==null?"null":released.getVersion()+" ID: "+released.getId()));
+            System.out.println("  InProgress: "+(inProgress==null?"null":inProgress.getVersion()+" ID: "+inProgress.getId()));
+            System.out.println("  All Versions:");
+            OdmaDocumentEnumeration allVersions = versionCollection.getVersions();
+            if(allVersions != null)
+            {
+                Iterator<?> itAllVersions = allVersions.iterator();
+                while(itAllVersions.hasNext())
+                {
+                    OdmaDocument ver = (OdmaDocument)itAllVersions.next();
+                    System.out.println("    "+ver.getVersion()+" ID: "+ver.getId());
+                    System.out.println("        Title: "+ver.getTitle());
+                }
+            }
+        }
+        else
+        {
+            System.out.println("  Document does not support versioning.");
+        }
+    }
+
+}

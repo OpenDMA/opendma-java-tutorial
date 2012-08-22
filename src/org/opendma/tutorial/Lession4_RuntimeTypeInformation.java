@@ -48,9 +48,9 @@ public class Lession4_RuntimeTypeInformation
             
             // print out information about the class of the repository
             System.out.println("Class of the repository object:");
-            System.out.println("Name: " + cls.getProperty(OdmaTypes.PROPERTY_NAME).getString() );
-            System.out.println("ID: " + cls.getProperty(OdmaTypes.PROPERTY_ID).getId().toString() );
-            System.out.println("Instantiable: " + cls.getProperty(OdmaTypes.PROPERTY_INSTANTIABLE).getBoolean().toString() );
+            System.out.println("    Name: " + cls.getProperty(OdmaTypes.PROPERTY_NAME).getString() );
+            System.out.println("    ID: " + cls.getProperty(OdmaTypes.PROPERTY_ID).getId().toString() );
+            System.out.println("    Instantiable: " + cls.getProperty(OdmaTypes.PROPERTY_INSTANTIABLE).getBoolean().toString() );
 
             // get set of PropertyInfos
             OdmaObjectEnumeration propInfos = cls.getProperty(OdmaTypes.PROPERTY_PROPERTIES).getReferenceEnumeration();
@@ -61,7 +61,7 @@ public class Lession4_RuntimeTypeInformation
             while(itPropInfos.hasNext())
             {
                 OdmaObject propInfo = (OdmaObject)itPropInfos.next();
-                System.out.println(propInfo.getProperty(OdmaTypes.PROPERTY_NAME).getString());
+                System.out.println("    " + propInfo.getProperty(OdmaTypes.PROPERTY_NAME).getString());
             }
             
             // get the parent

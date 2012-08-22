@@ -76,8 +76,9 @@ public class Lession5_ClassDependentInterfaces
                 System.out.println("    ReadOnly: " + propInfo.getReadOnly());
             }
             
-            // print class hierarchy
-            System.out.println("Class hierarchy:");
+            // print inheritance hierarchy
+            System.out.println();
+            System.out.println("Inheritance hierarchy:");
             OdmaClass clazz = repo.getOdmaClass();
             while(clazz != null)
             {
