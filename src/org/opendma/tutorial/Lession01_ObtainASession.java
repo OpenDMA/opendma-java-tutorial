@@ -5,12 +5,12 @@ import java.util.Properties;
 import org.opendma.AdaptorManager;
 import org.opendma.OdmaSession;
 
-public class Lession1_ObtainASession
+public class Lession01_ObtainASession
 {
 
     public static void main(String[] args)
     {
-        Lession1_ObtainASession lession1 = new Lession1_ObtainASession();
+        Lession01_ObtainASession lession1 = new Lession01_ObtainASession();
         try
         {
             lession1.run();

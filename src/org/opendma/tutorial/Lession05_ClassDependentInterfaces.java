@@ -10,12 +10,12 @@ import org.opendma.api.OdmaPropertyInfo;
 import org.opendma.api.OdmaRepository;
 import org.opendma.api.collections.OdmaPropertyInfoEnumeration;
 
-public class Lession5_ClassDependentInterfaces
+public class Lession05_ClassDependentInterfaces
 {
 
     public static void main(String[] args)
     {
-        Lession5_ClassDependentInterfaces lession1 = new Lession5_ClassDependentInterfaces();
+        Lession05_ClassDependentInterfaces lession1 = new Lession05_ClassDependentInterfaces();
         try
         {
             lession1.run();

@@ -4,12 +4,12 @@ import org.opendma.AdaptorManager;
 import org.opendma.OdmaSession;
 import org.opendma.api.OdmaId;
 
-public class Lession2_ListVisibleRepositories
+public class Lession02_ListVisibleRepositories
 {
 
     public static void main(String[] args)
     {
-        Lession2_ListVisibleRepositories lession1 = new Lession2_ListVisibleRepositories();
+        Lession02_ListVisibleRepositories lession1 = new Lession02_ListVisibleRepositories();
         try
         {
             lession1.run();

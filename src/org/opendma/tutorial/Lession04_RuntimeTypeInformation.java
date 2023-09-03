@@ -9,12 +9,12 @@ import org.opendma.api.OdmaId;
 import org.opendma.api.OdmaObject;
 import org.opendma.api.collections.OdmaObjectEnumeration;
 
-public class Lession4_RuntimeTypeInformation
+public class Lession04_RuntimeTypeInformation
 {
 
     public static void main(String[] args)
     {
-        Lession4_RuntimeTypeInformation lession1 = new Lession4_RuntimeTypeInformation();
+        Lession04_RuntimeTypeInformation lession1 = new Lession04_RuntimeTypeInformation();
         try
         {
             lession1.run();

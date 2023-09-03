@@ -20,12 +20,12 @@ import org.opendma.api.OdmaRepository;
 import org.opendma.api.collections.OdmaObjectEnumeration;
 import org.opendma.api.collections.OdmaPropertyInfoEnumeration;
 
-public class Lession7_PrintObjectProperties
+public class Lession07_PrintObjectProperties
 {
 
     public static void main(String[] args)
     {
-        Lession7_PrintObjectProperties lession1 = new Lession7_PrintObjectProperties();
+        Lession07_PrintObjectProperties lession1 = new Lession07_PrintObjectProperties();
         try
         {
             lession1.run();

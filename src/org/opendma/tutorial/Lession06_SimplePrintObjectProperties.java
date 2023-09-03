@@ -13,12 +13,12 @@ import org.opendma.api.OdmaQName;
 import org.opendma.api.OdmaRepository;
 import org.opendma.api.collections.OdmaPropertyInfoEnumeration;
 
-public class Lession6_SimplePrintObjectProperties
+public class Lession06_SimplePrintObjectProperties
 {
 
     public static void main(String[] args)
     {
-        Lession6_SimplePrintObjectProperties lession1 = new Lession6_SimplePrintObjectProperties();
+        Lession06_SimplePrintObjectProperties lession1 = new Lession06_SimplePrintObjectProperties();
         try
         {
             lession1.run();

@@ -9,12 +9,12 @@ import org.opendma.api.OdmaId;
 import org.opendma.api.OdmaRepository;
 import org.opendma.api.collections.OdmaClassEnumeration;
 
-public class Lession9_PrintClassTree
+public class Lession09_PrintClassTree
 {
 
     public static void main(String[] args)
     {
-        Lession9_PrintClassTree lession1 = new Lession9_PrintClassTree();
+        Lession09_PrintClassTree lession1 = new Lession09_PrintClassTree();
         try
         {
             lession1.run();

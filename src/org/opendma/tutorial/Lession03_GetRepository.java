@@ -8,12 +8,12 @@ import org.opendma.api.OdmaObject;
 import org.opendma.api.OdmaProperty;
 import org.opendma.api.OdmaQName;
 
-public class Lession3_GetRepository
+public class Lession03_GetRepository
 {
 
     public static void main(String[] args)
     {
-        Lession3_GetRepository lession1 = new Lession3_GetRepository();
+        Lession03_GetRepository lession1 = new Lession03_GetRepository();
         try
         {
             lession1.run();

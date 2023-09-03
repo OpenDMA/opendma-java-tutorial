@@ -10,12 +10,12 @@ import org.opendma.api.OdmaPropertyInfo;
 import org.opendma.api.OdmaRepository;
 import org.opendma.api.collections.OdmaPropertyInfoEnumeration;
 
-public class Lession8_InheritancePath
+public class Lession08_InheritancePath
 {
 
     public static void main(String[] args)
     {
-        Lession8_InheritancePath lession1 = new Lession8_InheritancePath();
+        Lession08_InheritancePath lession1 = new Lession08_InheritancePath();
         try
         {
             lession1.run();
