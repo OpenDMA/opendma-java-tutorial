@@ -13,10 +13,10 @@ public class Lession03_GetRepository
 
     public static void main(String[] args)
     {
-        Lession03_GetRepository lession1 = new Lession03_GetRepository();
+        Lession03_GetRepository lession = new Lession03_GetRepository();
         try
         {
-            lession1.run();
+            lession.run();
         }
         catch(Exception e)
         {

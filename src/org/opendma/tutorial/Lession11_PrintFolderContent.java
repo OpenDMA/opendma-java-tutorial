@@ -17,10 +17,10 @@ public class Lession11_PrintFolderContent
 
     public static void main(String[] args)
     {
-        Lession11_PrintFolderContent lession1 = new Lession11_PrintFolderContent();
+        Lession11_PrintFolderContent lession = new Lession11_PrintFolderContent();
         try
         {
-            lession1.run();
+            lession.run();
         }
         catch(Exception e)
         {

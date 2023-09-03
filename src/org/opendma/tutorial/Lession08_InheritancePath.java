@@ -15,10 +15,10 @@ public class Lession08_InheritancePath
 
     public static void main(String[] args)
     {
-        Lession08_InheritancePath lession1 = new Lession08_InheritancePath();
+        Lession08_InheritancePath lession = new Lession08_InheritancePath();
         try
         {
-            lession1.run();
+            lession.run();
         }
         catch(Exception e)
         {

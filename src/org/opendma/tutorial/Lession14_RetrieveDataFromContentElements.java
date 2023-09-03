@@ -21,10 +21,10 @@ public class Lession14_RetrieveDataFromContentElements
 
     public static void main(String[] args)
     {
-        Lession14_RetrieveDataFromContentElements lession1 = new Lession14_RetrieveDataFromContentElements();
+        Lession14_RetrieveDataFromContentElements lession = new Lession14_RetrieveDataFromContentElements();
         try
         {
-            lession1.run();
+            lession.run();
         }
         catch(Exception e)
         {

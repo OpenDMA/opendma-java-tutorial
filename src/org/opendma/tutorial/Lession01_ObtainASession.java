@@ -10,10 +10,10 @@ public class Lession01_ObtainASession
 
     public static void main(String[] args)
     {
-        Lession01_ObtainASession lession1 = new Lession01_ObtainASession();
+        Lession01_ObtainASession lession = new Lession01_ObtainASession();
         try
         {
-            lession1.run();
+            lession.run();
         }
         catch(Exception e)
         {

@@ -14,10 +14,10 @@ public class Lession09_PrintClassTree
 
     public static void main(String[] args)
     {
-        Lession09_PrintClassTree lession1 = new Lession09_PrintClassTree();
+        Lession09_PrintClassTree lession = new Lession09_PrintClassTree();
         try
         {
-            lession1.run();
+            lession.run();
         }
         catch(Exception e)
         {

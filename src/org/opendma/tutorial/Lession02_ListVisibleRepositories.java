@@ -9,10 +9,10 @@ public class Lession02_ListVisibleRepositories
 
     public static void main(String[] args)
     {
-        Lession02_ListVisibleRepositories lession1 = new Lession02_ListVisibleRepositories();
+        Lession02_ListVisibleRepositories lession = new Lession02_ListVisibleRepositories();
         try
         {
-            lession1.run();
+            lession.run();
         }
         catch(Exception e)
         {

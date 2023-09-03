@@ -18,10 +18,10 @@ public class Lession06_SimplePrintObjectProperties
 
     public static void main(String[] args)
     {
-        Lession06_SimplePrintObjectProperties lession1 = new Lession06_SimplePrintObjectProperties();
+        Lession06_SimplePrintObjectProperties lession = new Lession06_SimplePrintObjectProperties();
         try
         {
-            lession1.run();
+            lession.run();
         }
         catch(Exception e)
         {

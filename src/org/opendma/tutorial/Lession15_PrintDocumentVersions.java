@@ -15,10 +15,10 @@ public class Lession15_PrintDocumentVersions
 
     public static void main(String[] args)
     {
-        Lession15_PrintDocumentVersions lession1 = new Lession15_PrintDocumentVersions();
+        Lession15_PrintDocumentVersions lession = new Lession15_PrintDocumentVersions();
         try
         {
-            lession1.run();
+            lession.run();
         }
         catch(Exception e)
         {

@@ -15,10 +15,10 @@ public class Lession13_PrintDocumentContentElements
 
     public static void main(String[] args)
     {
-        Lession13_PrintDocumentContentElements lession1 = new Lession13_PrintDocumentContentElements();
+        Lession13_PrintDocumentContentElements lession = new Lession13_PrintDocumentContentElements();
         try
         {
-            lession1.run();
+            lession.run();
         }
         catch(Exception e)
         {

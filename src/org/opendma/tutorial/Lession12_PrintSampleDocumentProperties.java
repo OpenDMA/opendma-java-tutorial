@@ -24,10 +24,10 @@ public class Lession12_PrintSampleDocumentProperties
 
     public static void main(String[] args)
     {
-        Lession12_PrintSampleDocumentProperties lession1 = new Lession12_PrintSampleDocumentProperties();
+        Lession12_PrintSampleDocumentProperties lession = new Lession12_PrintSampleDocumentProperties();
         try
         {
-            lession1.run();
+            lession.run();
         }
         catch(Exception e)
         {

@@ -14,10 +14,10 @@ public class Lession04_RuntimeTypeInformation
 
     public static void main(String[] args)
     {
-        Lession04_RuntimeTypeInformation lession1 = new Lession04_RuntimeTypeInformation();
+        Lession04_RuntimeTypeInformation lession = new Lession04_RuntimeTypeInformation();
         try
         {
-            lession1.run();
+            lession.run();
         }
         catch(Exception e)
         {

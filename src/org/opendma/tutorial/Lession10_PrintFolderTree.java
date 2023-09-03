@@ -14,10 +14,10 @@ public class Lession10_PrintFolderTree
 
     public static void main(String[] args)
     {
-        Lession10_PrintFolderTree lession1 = new Lession10_PrintFolderTree();
+        Lession10_PrintFolderTree lession = new Lession10_PrintFolderTree();
         try
         {
-            lession1.run();
+            lession.run();
         }
         catch(Exception e)
         {

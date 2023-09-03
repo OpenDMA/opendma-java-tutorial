@@ -15,10 +15,10 @@ public class Lession05_ClassDependentInterfaces
 
     public static void main(String[] args)
     {
-        Lession05_ClassDependentInterfaces lession1 = new Lession05_ClassDependentInterfaces();
+        Lession05_ClassDependentInterfaces lession = new Lession05_ClassDependentInterfaces();
         try
         {
-            lession1.run();
+            lession.run();
         }
         catch(Exception e)
         {
