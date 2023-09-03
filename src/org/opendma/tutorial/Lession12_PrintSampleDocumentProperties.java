@@ -179,19 +179,19 @@ public class Lession12_PrintSampleDocumentProperties
     
     static
     {
-        dataTypeMap.put(new Integer(OdmaTypes.TYPE_STRING),"STRING");
-        dataTypeMap.put(new Integer(OdmaTypes.TYPE_INTEGER),"INTEGER");
-        dataTypeMap.put(new Integer(OdmaTypes.TYPE_SHORT),"SHORT");
-        dataTypeMap.put(new Integer(OdmaTypes.TYPE_LONG),"LONG");
-        dataTypeMap.put(new Integer(OdmaTypes.TYPE_FLOAT),"FLOAT");
-        dataTypeMap.put(new Integer(OdmaTypes.TYPE_DOUBLE),"DOUBLE");
-        dataTypeMap.put(new Integer(OdmaTypes.TYPE_BOOLEAN),"BOOLEAN");
-        dataTypeMap.put(new Integer(OdmaTypes.TYPE_DATETIME),"DATETIME");
-        dataTypeMap.put(new Integer(OdmaTypes.TYPE_BLOB),"BLOB");
-        dataTypeMap.put(new Integer(OdmaTypes.TYPE_REFERENCE),"REFERENCE");
-        dataTypeMap.put(new Integer(OdmaTypes.TYPE_CONTENT),"CONTENT");
-        dataTypeMap.put(new Integer(OdmaTypes.TYPE_ID),"ID");
-        dataTypeMap.put(new Integer(OdmaTypes.TYPE_GUID),"GUID");
+        dataTypeMap.put(Integer.valueOf(OdmaTypes.TYPE_STRING),"STRING");
+        dataTypeMap.put(Integer.valueOf(OdmaTypes.TYPE_INTEGER),"INTEGER");
+        dataTypeMap.put(Integer.valueOf(OdmaTypes.TYPE_SHORT),"SHORT");
+        dataTypeMap.put(Integer.valueOf(OdmaTypes.TYPE_LONG),"LONG");
+        dataTypeMap.put(Integer.valueOf(OdmaTypes.TYPE_FLOAT),"FLOAT");
+        dataTypeMap.put(Integer.valueOf(OdmaTypes.TYPE_DOUBLE),"DOUBLE");
+        dataTypeMap.put(Integer.valueOf(OdmaTypes.TYPE_BOOLEAN),"BOOLEAN");
+        dataTypeMap.put(Integer.valueOf(OdmaTypes.TYPE_DATETIME),"DATETIME");
+        dataTypeMap.put(Integer.valueOf(OdmaTypes.TYPE_BLOB),"BLOB");
+        dataTypeMap.put(Integer.valueOf(OdmaTypes.TYPE_REFERENCE),"REFERENCE");
+        dataTypeMap.put(Integer.valueOf(OdmaTypes.TYPE_CONTENT),"CONTENT");
+        dataTypeMap.put(Integer.valueOf(OdmaTypes.TYPE_ID),"ID");
+        dataTypeMap.put(Integer.valueOf(OdmaTypes.TYPE_GUID),"GUID");
     }
 
 }
