@@ -421,7 +421,7 @@
         <Property qualifier="opendma" name="Id" type="id"><Value>sample-association-a1</Value></Property>
         <Property qualifier="opendma" name="Name" type="string"><Value>SomeWordfile.doc</Value></Property>
         <Property qualifier="opendma" name="Container" type="reference"><Value>sample-folder-a</Value></Property>
-        <Property qualifier="opendma" name="Containment" type="reference"><Value>sample-document-a1</Value></Property>
+        <Property qualifier="opendma" name="Containable" type="reference"><Value>sample-document-a1</Value></Property>
         <Property qualifier="opendma" name="CreatedAt" type="datetime"><Value>2010-01-01 00:00:00</Value></Property>
         <Property qualifier="opendma" name="CreatedBy" type="string"><Value>SYSTEM</Value></Property>
         <Property qualifier="opendma" name="LastModifiedAt" type="datetime"><Value>2010-01-01 00:00:00</Value></Property>
@@ -581,7 +581,7 @@
         <Property qualifier="opendma" name="Id" type="id"><Value>sample-association-a2</Value></Property>
         <Property qualifier="opendma" name="Name" type="string"><Value>SomeMovie.mp4</Value></Property>
         <Property qualifier="opendma" name="Container" type="reference"><Value>sample-folder-a</Value></Property>
-        <Property qualifier="opendma" name="Containment" type="reference"><Value>sample-document-a2</Value></Property>
+        <Property qualifier="opendma" name="Containable" type="reference"><Value>sample-document-a2</Value></Property>
         <Property qualifier="opendma" name="CreatedAt" type="datetime"><Value>2010-01-01 00:00:00</Value></Property>
         <Property qualifier="opendma" name="CreatedBy" type="string"><Value>SYSTEM</Value></Property>
         <Property qualifier="opendma" name="LastModifiedAt" type="datetime"><Value>2010-01-01 00:00:00</Value></Property>
@@ -599,7 +599,7 @@
         <Property qualifier="opendma" name="Id" type="id"><Value>sample-association-a3</Value></Property>
         <Property qualifier="opendma" name="Name" type="string"><Value>Sixpack, Joe</Value></Property>
         <Property qualifier="opendma" name="Container" type="reference"><Value>sample-folder-a</Value></Property>
-        <Property qualifier="opendma" name="Containment" type="reference"><Value>contact-1</Value></Property>
+        <Property qualifier="opendma" name="Containable" type="reference"><Value>contact-1</Value></Property>
         <Property qualifier="opendma" name="CreatedAt" type="datetime"><Value>2010-01-01 00:00:00</Value></Property>
         <Property qualifier="opendma" name="CreatedBy" type="string"><Value>SYSTEM</Value></Property>
         <Property qualifier="opendma" name="LastModifiedAt" type="datetime"><Value>2010-01-01 00:00:00</Value></Property>
@@ -616,7 +616,7 @@
         <Property qualifier="opendma" name="Id" type="id"><Value>sample-association-a4</Value></Property>
         <Property qualifier="opendma" name="Name" type="string"><Value>Christmas</Value></Property>
         <Property qualifier="opendma" name="Container" type="reference"><Value>sample-folder-a</Value></Property>
-        <Property qualifier="opendma" name="Containment" type="reference"><Value>event-1</Value></Property>
+        <Property qualifier="opendma" name="Containable" type="reference"><Value>event-1</Value></Property>
         <Property qualifier="opendma" name="CreatedAt" type="datetime"><Value>2010-01-01 00:00:00</Value></Property>
         <Property qualifier="opendma" name="CreatedBy" type="string"><Value>SYSTEM</Value></Property>
         <Property qualifier="opendma" name="LastModifiedAt" type="datetime"><Value>2010-01-01 00:00:00</Value></Property>
@@ -655,7 +655,7 @@
         <Property qualifier="opendma" name="Id" type="id"><Value>sample-association-b1</Value></Property>
         <Property qualifier="opendma" name="Name" type="string"><Value>AnotherWordfile.doc</Value></Property>
         <Property qualifier="opendma" name="Container" type="reference"><Value>sample-folder-b</Value></Property>
-        <Property qualifier="opendma" name="Containment" type="reference"><Value>sample-document-b1</Value></Property>
+        <Property qualifier="opendma" name="Containable" type="reference"><Value>sample-document-b1</Value></Property>
         <Property qualifier="opendma" name="CreatedAt" type="datetime"><Value>2010-01-01 00:00:00</Value></Property>
         <Property qualifier="opendma" name="CreatedBy" type="string"><Value>SYSTEM</Value></Property>
         <Property qualifier="opendma" name="LastModifiedAt" type="datetime"><Value>2010-01-01 00:00:00</Value></Property>
@@ -694,7 +694,7 @@
         <Property qualifier="opendma" name="Id" type="id"><Value>sample-association-b2</Value></Property>
         <Property qualifier="opendma" name="Name" type="string"><Value>AnotherMovie.mp4</Value></Property>
         <Property qualifier="opendma" name="Container" type="reference"><Value>sample-folder-b</Value></Property>
-        <Property qualifier="opendma" name="Containment" type="reference"><Value>sample-document-b2</Value></Property>
+        <Property qualifier="opendma" name="Containable" type="reference"><Value>sample-document-b2</Value></Property>
         <Property qualifier="opendma" name="CreatedAt" type="datetime"><Value>2010-01-01 00:00:00</Value></Property>
         <Property qualifier="opendma" name="CreatedBy" type="string"><Value>SYSTEM</Value></Property>
         <Property qualifier="opendma" name="LastModifiedAt" type="datetime"><Value>2010-01-01 00:00:00</Value></Property>
