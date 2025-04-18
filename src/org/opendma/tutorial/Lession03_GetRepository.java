@@ -1,12 +1,12 @@
 package org.opendma.tutorial;
 
 import org.opendma.AdaptorManager;
-import org.opendma.OdmaSession;
-import org.opendma.OdmaTypes;
+import org.opendma.api.OdmaCommonNames;
 import org.opendma.api.OdmaId;
 import org.opendma.api.OdmaObject;
 import org.opendma.api.OdmaProperty;
 import org.opendma.api.OdmaQName;
+import org.opendma.api.OdmaSession;
 
 public class Lession03_GetRepository
 {
@@ -32,8 +32,7 @@ public class Lession03_GetRepository
         Class.forName("com.xaldon.opendma.xmlrepo.Adaptor");
 
         // get Session
-        OdmaSession session =
-            AdaptorManager.getSession("xmlrepo:SampleRepository.xml", "tutorial", "tutorialpw");
+        OdmaSession session = AdaptorManager.getSession("xmlrepo:SampleRepository.xml", "tutorial", "tutorialpw");
         try
         {
 
@@ -46,7 +45,7 @@ public class Lession03_GetRepository
             OdmaProperty propDisplayName = repo.getProperty(qnDisplayName);
             
             // access by OdmaQName constant for well known property names
-            repo.getProperty(OdmaTypes.PROPERTY_DISPLAYNAME);
+            repo.getProperty(OdmaCommonNames.PROPERTY_DISPLAYNAME);
             
             // print out the display name
             System.out.println("DispName: " + (String)propDisplayName.getValue() );

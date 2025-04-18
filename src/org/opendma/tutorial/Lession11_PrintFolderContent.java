@@ -3,14 +3,12 @@ package org.opendma.tutorial;
 import java.util.Iterator;
 
 import org.opendma.AdaptorManager;
-import org.opendma.OdmaSession;
 import org.opendma.api.OdmaAssociation;
 import org.opendma.api.OdmaContainable;
 import org.opendma.api.OdmaFolder;
 import org.opendma.api.OdmaId;
 import org.opendma.api.OdmaRepository;
-import org.opendma.api.collections.OdmaAssociationEnumeration;
-import org.opendma.api.collections.OdmaFolderEnumeration;
+import org.opendma.api.OdmaSession;
 
 public class Lession11_PrintFolderContent
 {
@@ -36,8 +34,7 @@ public class Lession11_PrintFolderContent
         Class.forName("com.xaldon.opendma.xmlrepo.Adaptor");
 
         // get Session
-        OdmaSession session =
-            AdaptorManager.getSession("xmlrepo:SampleRepository.xml", "tutorial", "tutorialpw");
+        OdmaSession session = AdaptorManager.getSession("xmlrepo:SampleRepository.xml", "tutorial", "tutorialpw");
         try
         {
 
@@ -72,27 +69,25 @@ public class Lession11_PrintFolderContent
             indentStr.append(" ");
         }
         System.out.println(indentStr.toString() + "-" + folder.getTitle());
-        OdmaAssociationEnumeration associations = folder.getAssociations();
+        Iterable<OdmaAssociation> associations = folder.getAssociations();
         if(associations != null)
         {
-            Iterator<?> itAssociations = associations.iterator();
+            Iterator<OdmaAssociation> itAssociations = associations.iterator();
             while(itAssociations.hasNext())
             {
-                OdmaAssociation assoc = (OdmaAssociation)itAssociations.next();
-                System.out.print(indentStr.toString() +
-                                 "    =" +
-                                 assoc.getName());
+                OdmaAssociation assoc = itAssociations.next();
+                System.out.print(indentStr.toString() + "    =" + assoc.getName());
                 OdmaContainable containee = assoc.getContainable();
                 System.out.println(" --> ID " + containee.getId() + " [" + containee.getOdmaClass().getQName() + "]");
             }
         }
-        OdmaFolderEnumeration subFolders = folder.getSubFolders();
+        Iterable<OdmaFolder> subFolders = folder.getSubFolders();
         if(subFolders != null)
         {
-            Iterator<?> itSubFolders = subFolders.iterator();
+            Iterator<OdmaFolder> itSubFolders = subFolders.iterator();
             while(itSubFolders.hasNext())
             {
-                iterativePrintFolderContent((OdmaFolder)itSubFolders.next(),indent+1);
+                iterativePrintFolderContent(itSubFolders.next(),indent+1);
             }
         }
     }

@@ -3,12 +3,11 @@ package org.opendma.tutorial;
 import java.util.Iterator;
 
 import org.opendma.AdaptorManager;
-import org.opendma.OdmaSession;
 import org.opendma.api.OdmaClass;
 import org.opendma.api.OdmaId;
 import org.opendma.api.OdmaPropertyInfo;
 import org.opendma.api.OdmaRepository;
-import org.opendma.api.collections.OdmaPropertyInfoEnumeration;
+import org.opendma.api.OdmaSession;
 
 public class Lession05_ClassDependentInterfaces
 {
@@ -34,8 +33,7 @@ public class Lession05_ClassDependentInterfaces
         Class.forName("com.xaldon.opendma.xmlrepo.Adaptor");
 
         // get Session
-        OdmaSession session =
-            AdaptorManager.getSession("xmlrepo:SampleRepository.xml", "tutorial", "tutorialpw");
+        OdmaSession session = AdaptorManager.getSession("xmlrepo:SampleRepository.xml", "tutorial", "tutorialpw");
         try
         {
 
@@ -57,23 +55,23 @@ public class Lession05_ClassDependentInterfaces
             System.out.println("ID: " + cls.getId());
             System.out.println("Name: " + cls.getName());
             System.out.println("DispName: " + cls.getDisplayName());
-            System.out.println("Instantiable: " + cls.getInstantiable());
-            System.out.println("Hidden: " + cls.getHidden());
-            System.out.println("System: " + cls.getSystem());
+            System.out.println("Instantiable: " + cls.isInstantiable());
+            System.out.println("Hidden: " + cls.isHidden());
+            System.out.println("System: " + cls.isSystem());
 
             // get set of PropertyInfos
-            OdmaPropertyInfoEnumeration propInfos = cls.getProperties();
+            Iterable<OdmaPropertyInfo> propInfos = cls.getProperties();
             
             // print out all PropertyInfos
             System.out.println("Repository object contains the following properties:");
-            Iterator<?> itPropInfos = propInfos.iterator();
+            Iterator<OdmaPropertyInfo> itPropInfos = propInfos.iterator();
             while(itPropInfos.hasNext())
             {
-                OdmaPropertyInfo propInfo = (OdmaPropertyInfo)itPropInfos.next();
+                OdmaPropertyInfo propInfo = itPropInfos.next();
                 System.out.println(propInfo.getQName());
                 System.out.println("    DataType: " + propInfo.getDataType());
-                System.out.println("    MultiValue: " + propInfo.getMultiValue());
-                System.out.println("    ReadOnly: " + propInfo.getReadOnly());
+                System.out.println("    MultiValue: " + propInfo.isMultiValue());
+                System.out.println("    ReadOnly: " + propInfo.isReadOnly());
             }
             
             // print inheritance hierarchy
@@ -83,7 +81,7 @@ public class Lession05_ClassDependentInterfaces
             while(clazz != null)
             {
                 System.out.println(clazz.getQName());
-                clazz = clazz.getParent();
+                clazz = clazz.getSuperClass();
             }
             
         }

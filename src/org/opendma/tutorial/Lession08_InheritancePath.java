@@ -3,12 +3,11 @@ package org.opendma.tutorial;
 import java.util.Iterator;
 
 import org.opendma.AdaptorManager;
-import org.opendma.OdmaSession;
 import org.opendma.api.OdmaClass;
 import org.opendma.api.OdmaId;
 import org.opendma.api.OdmaPropertyInfo;
 import org.opendma.api.OdmaRepository;
-import org.opendma.api.collections.OdmaPropertyInfoEnumeration;
+import org.opendma.api.OdmaSession;
 
 public class Lession08_InheritancePath
 {
@@ -34,8 +33,7 @@ public class Lession08_InheritancePath
         Class.forName("com.xaldon.opendma.xmlrepo.Adaptor");
 
         // get Session
-        OdmaSession session =
-            AdaptorManager.getSession("xmlrepo:SampleRepository.xml", "tutorial", "tutorialpw");
+        OdmaSession session = AdaptorManager.getSession("xmlrepo:SampleRepository.xml", "tutorial", "tutorialpw");
         try
         {
 
@@ -51,18 +49,16 @@ public class Lession08_InheritancePath
                 // print the qualified name of this class
                 System.out.println(clazz.getQName());
                 // get enumeration of declared properties
-                OdmaPropertyInfoEnumeration propInfos =
-                    clazz.getDeclaredProperties();
+                Iterable<OdmaPropertyInfo> propInfos = clazz.getDeclaredProperties();
                 // iterate over declared PropertyInfos
-                Iterator<?> itPropInfos = propInfos.iterator();
+                Iterator<OdmaPropertyInfo> itPropInfos = propInfos.iterator();
                 while(itPropInfos.hasNext())
                 {
-                    OdmaPropertyInfo propInfo =
-                        (OdmaPropertyInfo)itPropInfos.next();
+                    OdmaPropertyInfo propInfo = itPropInfos.next();
                     System.out.println("    "+propInfo.getQName());
                 }
                 // get next class in hierarchy path
-                clazz = clazz.getParent();
+                clazz = clazz.getSuperClass();
             }
             
         }

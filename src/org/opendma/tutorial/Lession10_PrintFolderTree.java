@@ -3,11 +3,10 @@ package org.opendma.tutorial;
 import java.util.Iterator;
 
 import org.opendma.AdaptorManager;
-import org.opendma.OdmaSession;
 import org.opendma.api.OdmaFolder;
 import org.opendma.api.OdmaId;
 import org.opendma.api.OdmaRepository;
-import org.opendma.api.collections.OdmaFolderEnumeration;
+import org.opendma.api.OdmaSession;
 
 public class Lession10_PrintFolderTree
 {
@@ -33,8 +32,7 @@ public class Lession10_PrintFolderTree
         Class.forName("com.xaldon.opendma.xmlrepo.Adaptor");
 
         // get Session
-        OdmaSession session =
-            AdaptorManager.getSession("xmlrepo:SampleRepository.xml", "tutorial", "tutorialpw");
+        OdmaSession session = AdaptorManager.getSession("xmlrepo:SampleRepository.xml", "tutorial", "tutorialpw");
         try
         {
 
@@ -68,13 +66,13 @@ public class Lession10_PrintFolderTree
             System.out.print(" ");
         }
         System.out.println(folder.getTitle());
-        OdmaFolderEnumeration subFolders = folder.getSubFolders();
+        Iterable<OdmaFolder> subFolders = folder.getSubFolders();
         if(subFolders != null)
         {
-            Iterator<?> itSubFolders = subFolders.iterator();
+            Iterator<OdmaFolder> itSubFolders = subFolders.iterator();
             while(itSubFolders.hasNext())
             {
-                iterativePrintFolderTree((OdmaFolder)itSubFolders.next(),indent+1);
+                iterativePrintFolderTree(itSubFolders.next(),indent+1);
             }
         }
     }

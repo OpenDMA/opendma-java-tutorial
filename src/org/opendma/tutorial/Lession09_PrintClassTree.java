@@ -3,11 +3,10 @@ package org.opendma.tutorial;
 import java.util.Iterator;
 
 import org.opendma.AdaptorManager;
-import org.opendma.OdmaSession;
 import org.opendma.api.OdmaClass;
 import org.opendma.api.OdmaId;
 import org.opendma.api.OdmaRepository;
-import org.opendma.api.collections.OdmaClassEnumeration;
+import org.opendma.api.OdmaSession;
 
 public class Lession09_PrintClassTree
 {
@@ -33,8 +32,7 @@ public class Lession09_PrintClassTree
         Class.forName("com.xaldon.opendma.xmlrepo.Adaptor");
 
         // get Session
-        OdmaSession session =
-            AdaptorManager.getSession("xmlrepo:SampleRepository.xml", "tutorial", "tutorialpw");
+        OdmaSession session = AdaptorManager.getSession("xmlrepo:SampleRepository.xml", "tutorial", "tutorialpw");
         try
         {
 
@@ -61,13 +59,13 @@ public class Lession09_PrintClassTree
             System.out.print(" ");
         }
         System.out.println(cls.getQName());
-        OdmaClassEnumeration subClasses = cls.getSubClasses();
+        Iterable<OdmaClass> subClasses = cls.getSubClasses();
         if(subClasses != null)
         {
-            Iterator<?> itSubClasses = subClasses.iterator();
+            Iterator<OdmaClass> itSubClasses = subClasses.iterator();
             while(itSubClasses.hasNext())
             {
-                iterativePrintClassAndSubclasses((OdmaClass)itSubClasses.next(),indent+1);
+                iterativePrintClassAndSubclasses(itSubClasses.next(),indent+1);
             }
         }
     }

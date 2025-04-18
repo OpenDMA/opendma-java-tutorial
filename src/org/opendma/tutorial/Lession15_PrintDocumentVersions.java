@@ -3,12 +3,10 @@ package org.opendma.tutorial;
 import java.util.Iterator;
 
 import org.opendma.AdaptorManager;
-import org.opendma.OdmaSession;
 import org.opendma.api.OdmaDocument;
 import org.opendma.api.OdmaId;
-import org.opendma.api.OdmaQName;
+import org.opendma.api.OdmaSession;
 import org.opendma.api.OdmaVersionCollection;
-import org.opendma.api.collections.OdmaDocumentEnumeration;
 
 public class Lession15_PrintDocumentVersions
 {
@@ -34,15 +32,14 @@ public class Lession15_PrintDocumentVersions
         Class.forName("com.xaldon.opendma.xmlrepo.Adaptor");
 
         // get Session
-        OdmaSession session =
-            AdaptorManager.getSession("xmlrepo:SampleRepository.xml", "tutorial", "tutorialpw");
+        OdmaSession session = AdaptorManager.getSession("xmlrepo:SampleRepository.xml", "tutorial", "tutorialpw");
         try
         {
 
             // get the SampleDocument by ID
             OdmaId repoId = new OdmaId("sample-repo");
             OdmaId sampleDocumentId = new OdmaId("sample-document-a1");
-            OdmaDocument doc = (OdmaDocument)session.getObject(repoId, sampleDocumentId, new OdmaQName("tutorial","SampleDocument"), null);
+            OdmaDocument doc = (OdmaDocument)session.getObject(repoId, sampleDocumentId, null);
             
             // print out properties of Sample Document
             printContentElements(doc);
@@ -69,13 +66,13 @@ public class Lession15_PrintDocumentVersions
             System.out.println("  Released: "+(released==null?"null":released.getVersion()+" ID: "+released.getId()));
             System.out.println("  InProgress: "+(inProgress==null?"null":inProgress.getVersion()+" ID: "+inProgress.getId()));
             System.out.println("  All Versions:");
-            OdmaDocumentEnumeration allVersions = versionCollection.getVersions();
+            Iterable<OdmaDocument> allVersions = versionCollection.getVersions();
             if(allVersions != null)
             {
-                Iterator<?> itAllVersions = allVersions.iterator();
+                Iterator<OdmaDocument> itAllVersions = allVersions.iterator();
                 while(itAllVersions.hasNext())
                 {
-                    OdmaDocument ver = (OdmaDocument)itAllVersions.next();
+                    OdmaDocument ver = itAllVersions.next();
                     System.out.println("    "+ver.getVersion()+" ID: "+ver.getId());
                     System.out.println("        Title: "+ver.getTitle());
                 }

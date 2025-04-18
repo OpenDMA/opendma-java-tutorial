@@ -1,14 +1,10 @@
 package org.opendma.tutorial;
 
 import java.util.Date;
-import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
 
 import org.opendma.AdaptorManager;
-import org.opendma.OdmaSession;
-import org.opendma.OdmaTypes;
 import org.opendma.api.OdmaClass;
 import org.opendma.api.OdmaGuid;
 import org.opendma.api.OdmaId;
@@ -17,8 +13,8 @@ import org.opendma.api.OdmaProperty;
 import org.opendma.api.OdmaPropertyInfo;
 import org.opendma.api.OdmaQName;
 import org.opendma.api.OdmaRepository;
-import org.opendma.api.collections.OdmaObjectEnumeration;
-import org.opendma.api.collections.OdmaPropertyInfoEnumeration;
+import org.opendma.api.OdmaSession;
+import org.opendma.api.OdmaType;
 
 public class Lession07_PrintObjectProperties
 {
@@ -44,8 +40,7 @@ public class Lession07_PrintObjectProperties
         Class.forName("com.xaldon.opendma.xmlrepo.Adaptor");
 
         // get Session
-        OdmaSession session =
-            AdaptorManager.getSession("xmlrepo:SampleRepository.xml", "tutorial", "tutorialpw");
+        OdmaSession session = AdaptorManager.getSession("xmlrepo:SampleRepository.xml", "tutorial", "tutorialpw");
         try
         {
 
@@ -63,7 +58,7 @@ public class Lession07_PrintObjectProperties
             while(clazz != null)
             {
                 System.out.println(clazz.getQName());
-                clazz = clazz.getParent();
+                clazz = clazz.getSuperClass();
             }
             
         }
@@ -81,25 +76,25 @@ public class Lession07_PrintObjectProperties
         // get the class of the object
         OdmaClass cls = obj.getOdmaClass();
         // get enumeration of all properties
-        OdmaPropertyInfoEnumeration propInfos = cls.getProperties();
+        Iterable<OdmaPropertyInfo> propInfos = cls.getProperties();
         // iterate over all PropertyInfos
-        Iterator<?> itPropInfos = propInfos.iterator();
+        Iterator<OdmaPropertyInfo> itPropInfos = propInfos.iterator();
         while(itPropInfos.hasNext())
         {
-            OdmaPropertyInfo propInfo =
-                (OdmaPropertyInfo)itPropInfos.next();
+            OdmaPropertyInfo propInfo = itPropInfos.next();
             OdmaQName propertyName = propInfo.getQName();
-            boolean multiValue = propInfo.getMultiValue().booleanValue();
+            OdmaType dataType = OdmaType.fromNumericId(propInfo.getDataType());
+            boolean multiValue = propInfo.isMultiValue();
             // get the property from the object
             OdmaProperty prop = obj.getProperty(propertyName);
             // print property value
             System.out.print("    ");
             System.out.print(propertyName);
-            System.out.print(" (" + getDataTypeString(propInfo.getDataType()) + ")");
+            System.out.print(" (" + dataType + ")");
             System.out.print(" [" + (multiValue ? "multi" : "single" ) + "] : ");
             if(!multiValue)
             {
-                System.out.println(convertDataValue(propInfo.getDataType(), prop.getValue()));
+                System.out.println(convertDataValue(dataType, prop.getValue()));
             }
             else
             {
@@ -111,14 +106,15 @@ public class Lession07_PrintObjectProperties
                 else
                 {
                     System.out.println();
-                    if(propInfo.getDataType().intValue() == OdmaTypes.TYPE_REFERENCE)
+                    if(dataType == OdmaType.REFERENCE)
                     {
-                        OdmaObjectEnumeration objEnum = (OdmaObjectEnumeration)value;
-                        Iterator<?> itObjects = objEnum.iterator();
+                        @SuppressWarnings("unchecked")
+						Iterable<OdmaObject> objEnum = (Iterable<OdmaObject>)value;
+                        Iterator<OdmaObject> itObjects = objEnum.iterator();
                         while(itObjects.hasNext())
                         {
-                            OdmaObject referencedObject = (OdmaObject)itObjects.next();
-                            System.out.println("        "+convertDataValue(propInfo.getDataType(), referencedObject));
+                            OdmaObject referencedObject = itObjects.next();
+                            System.out.println("        "+convertDataValue(dataType, referencedObject));
                         }
                     }
                     else
@@ -126,7 +122,7 @@ public class Lession07_PrintObjectProperties
                         List<?> dataList = (List<?>)value;
                         for(Object val : dataList)
                         {
-                            System.out.println("        "+convertDataValue(propInfo.getDataType(), val));
+                            System.out.println("        "+convertDataValue(dataType, val));
                         }
                     }
                 }
@@ -135,73 +131,44 @@ public class Lession07_PrintObjectProperties
         
     }
     
-    public static String getDataTypeString(Integer type)
-    {
-        String s = dataTypeMap.get(type);
-        if(s == null)
-        {
-            s = "<unknown("+type.toString()+")>";
-        }
-        return s;
-    }
-    
-    protected static String convertDataValue(Integer type, Object value)
+    protected static String convertDataValue(OdmaType type, Object value)
     {
         if(value == null)
         {
             return "<null>";
         }
-        switch(type.intValue())
+        switch(type)
         {
-        case OdmaTypes.TYPE_STRING:
+        case STRING:
             return (String)value;
-        case OdmaTypes.TYPE_INTEGER:
+        case INTEGER:
             return ((Integer)value).toString();
-        case OdmaTypes.TYPE_SHORT:
+        case SHORT:
             return ((Short)value).toString();
-        case OdmaTypes.TYPE_LONG:
+        case LONG:
             return ((Long)value).toString();
-        case OdmaTypes.TYPE_FLOAT:
+        case FLOAT:
             return ((Float)value).toString();
-        case OdmaTypes.TYPE_DOUBLE:
+        case DOUBLE:
             return ((Double)value).toString();
-        case OdmaTypes.TYPE_BOOLEAN:
+        case BOOLEAN:
             return ((Boolean)value).toString();
-        case OdmaTypes.TYPE_DATETIME:
+        case DATETIME:
             return ((Date)value).toString();
-        case OdmaTypes.TYPE_BLOB:
+        case BLOB:
             return Integer.toString(((byte[])value).length) + " octets of data";
-        case OdmaTypes.TYPE_REFERENCE:
+        case REFERENCE:
             OdmaObject referencedObject = (OdmaObject)value;
             return referencedObject.getId().toString() + " of class " + referencedObject.getOdmaClass().getQName();
-        case OdmaTypes.TYPE_CONTENT:
+        case CONTENT:
             return "content-stream";
-        case OdmaTypes.TYPE_ID:
+        case ID:
             return ((OdmaId)value).toString();
-        case OdmaTypes.TYPE_GUID:
+        case GUID:
             return ((OdmaGuid)value).toString();
         default:
             return "error-converting-value";
         }
-    }
-    
-    protected static Map<Integer,String> dataTypeMap = new HashMap<Integer,String>();
-    
-    static
-    {
-        dataTypeMap.put(Integer.valueOf(OdmaTypes.TYPE_STRING),"STRING");
-        dataTypeMap.put(Integer.valueOf(OdmaTypes.TYPE_INTEGER),"INTEGER");
-        dataTypeMap.put(Integer.valueOf(OdmaTypes.TYPE_SHORT),"SHORT");
-        dataTypeMap.put(Integer.valueOf(OdmaTypes.TYPE_LONG),"LONG");
-        dataTypeMap.put(Integer.valueOf(OdmaTypes.TYPE_FLOAT),"FLOAT");
-        dataTypeMap.put(Integer.valueOf(OdmaTypes.TYPE_DOUBLE),"DOUBLE");
-        dataTypeMap.put(Integer.valueOf(OdmaTypes.TYPE_BOOLEAN),"BOOLEAN");
-        dataTypeMap.put(Integer.valueOf(OdmaTypes.TYPE_DATETIME),"DATETIME");
-        dataTypeMap.put(Integer.valueOf(OdmaTypes.TYPE_BLOB),"BLOB");
-        dataTypeMap.put(Integer.valueOf(OdmaTypes.TYPE_REFERENCE),"REFERENCE");
-        dataTypeMap.put(Integer.valueOf(OdmaTypes.TYPE_CONTENT),"CONTENT");
-        dataTypeMap.put(Integer.valueOf(OdmaTypes.TYPE_ID),"ID");
-        dataTypeMap.put(Integer.valueOf(OdmaTypes.TYPE_GUID),"GUID");
     }
 
 }

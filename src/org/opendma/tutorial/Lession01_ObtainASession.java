@@ -3,7 +3,7 @@ package org.opendma.tutorial;
 import java.util.Properties;
 
 import org.opendma.AdaptorManager;
-import org.opendma.OdmaSession;
+import org.opendma.api.OdmaSession;
 
 public class Lession01_ObtainASession
 {
@@ -31,8 +31,7 @@ public class Lession01_ObtainASession
 
         // get Session
         System.out.println("Trying to get a Session to the OpenDMA XML-Repository...");
-        OdmaSession session =
-            AdaptorManager.getSession("xmlrepo:SampleRepository.xml", "tutorial", "tutorialpw");
+        OdmaSession session = AdaptorManager.getSession("xmlrepo:SampleRepository.xml", "tutorial", "tutorialpw");
         try
         {
             // perform some work with this Session

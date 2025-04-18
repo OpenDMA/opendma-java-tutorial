@@ -1,8 +1,10 @@
 package org.opendma.tutorial;
 
+import java.util.List;
+
 import org.opendma.AdaptorManager;
-import org.opendma.OdmaSession;
 import org.opendma.api.OdmaId;
+import org.opendma.api.OdmaSession;
 
 public class Lession02_ListVisibleRepositories
 {
@@ -28,12 +30,11 @@ public class Lession02_ListVisibleRepositories
         Class.forName("com.xaldon.opendma.xmlrepo.Adaptor");
 
         // get Session
-        OdmaSession session =
-            AdaptorManager.getSession("xmlrepo:SampleRepository.xml", "tutorial", "tutorialpw");
+        OdmaSession session = AdaptorManager.getSession("xmlrepo:SampleRepository.xml", "tutorial", "tutorialpw");
         try
         {
             // list all visible Repositories
-            OdmaId[] visibleRepositories = session.getRepositoryIds();
+            List<OdmaId> visibleRepositories = session.getRepositoryIds();
             System.out.println("Visible Repositories:");
             for(OdmaId repoId : visibleRepositories)
             {

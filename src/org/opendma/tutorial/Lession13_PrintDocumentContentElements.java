@@ -3,12 +3,10 @@ package org.opendma.tutorial;
 import java.util.Iterator;
 
 import org.opendma.AdaptorManager;
-import org.opendma.OdmaSession;
 import org.opendma.api.OdmaContentElement;
 import org.opendma.api.OdmaDocument;
 import org.opendma.api.OdmaId;
-import org.opendma.api.OdmaQName;
-import org.opendma.api.collections.OdmaContentElementEnumeration;
+import org.opendma.api.OdmaSession;
 
 public class Lession13_PrintDocumentContentElements
 {
@@ -34,15 +32,14 @@ public class Lession13_PrintDocumentContentElements
         Class.forName("com.xaldon.opendma.xmlrepo.Adaptor");
 
         // get Session
-        OdmaSession session =
-            AdaptorManager.getSession("xmlrepo:SampleRepository.xml", "tutorial", "tutorialpw");
+        OdmaSession session = AdaptorManager.getSession("xmlrepo:SampleRepository.xml", "tutorial", "tutorialpw");
         try
         {
 
             // get the SampleDocument by ID
             OdmaId repoId = new OdmaId("sample-repo");
             OdmaId sampleDocumentId = new OdmaId("sample-document-a2");
-            OdmaDocument doc = (OdmaDocument)session.getObject(repoId, sampleDocumentId, new OdmaQName("tutorial","SampleDocument"), null);
+            OdmaDocument doc = (OdmaDocument)session.getObject(repoId, sampleDocumentId, null);
             
             // print out properties of Sample Document
             printContentElements(doc);
@@ -59,13 +56,13 @@ public class Lession13_PrintDocumentContentElements
     public void printContentElements(OdmaDocument doc)
     {
         System.out.println("Content Elements of Document \"" + doc.getTitle() + "\":");
-        OdmaContentElementEnumeration contentElements = doc.getContentElements();
+        Iterable<OdmaContentElement> contentElements = doc.getContentElements();
         if(contentElements != null)
         {
-            Iterator<?> itContentElements = contentElements.iterator();
+            Iterator<OdmaContentElement> itContentElements = contentElements.iterator();
             while(itContentElements.hasNext())
             {
-                OdmaContentElement contElem = (OdmaContentElement)itContentElements.next();
+                OdmaContentElement contElem = itContentElements.next();
                 System.out.println("  Pos " + contElem.getPosition() + " of type " + contElem.getContentType() + " as " + contElem.getOdmaClass().getQName() );
             }
         }

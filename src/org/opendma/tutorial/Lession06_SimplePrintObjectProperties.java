@@ -3,7 +3,6 @@ package org.opendma.tutorial;
 import java.util.Iterator;
 
 import org.opendma.AdaptorManager;
-import org.opendma.OdmaSession;
 import org.opendma.api.OdmaClass;
 import org.opendma.api.OdmaId;
 import org.opendma.api.OdmaObject;
@@ -11,7 +10,8 @@ import org.opendma.api.OdmaProperty;
 import org.opendma.api.OdmaPropertyInfo;
 import org.opendma.api.OdmaQName;
 import org.opendma.api.OdmaRepository;
-import org.opendma.api.collections.OdmaPropertyInfoEnumeration;
+import org.opendma.api.OdmaSession;
+import org.opendma.api.OdmaType;
 
 public class Lession06_SimplePrintObjectProperties
 {
@@ -37,8 +37,7 @@ public class Lession06_SimplePrintObjectProperties
         Class.forName("com.xaldon.opendma.xmlrepo.Adaptor");
 
         // get Session
-        OdmaSession session =
-            AdaptorManager.getSession("xmlrepo:SampleRepository.xml", "tutorial", "tutorialpw");
+        OdmaSession session = AdaptorManager.getSession("xmlrepo:SampleRepository.xml", "tutorial", "tutorialpw");
         try
         {
 
@@ -56,7 +55,7 @@ public class Lession06_SimplePrintObjectProperties
             while(clazz != null)
             {
                 System.out.println(clazz.getQName());
-                clazz = clazz.getParent();
+                clazz = clazz.getSuperClass();
             }
             
         }
@@ -74,23 +73,22 @@ public class Lession06_SimplePrintObjectProperties
         // get the class of the object
         OdmaClass cls = obj.getOdmaClass();
         // get enumeration of all properties
-        OdmaPropertyInfoEnumeration propInfos = cls.getProperties();
+        Iterable<OdmaPropertyInfo> propInfos = cls.getProperties();
         // iterate over all PropertyInfos
-        Iterator<?> itPropInfos = propInfos.iterator();
+        Iterator<OdmaPropertyInfo> itPropInfos = propInfos.iterator();
         while(itPropInfos.hasNext())
         {
-            OdmaPropertyInfo propInfo =
-                (OdmaPropertyInfo)itPropInfos.next();
+            OdmaPropertyInfo propInfo = itPropInfos.next();
             OdmaQName propertyName = propInfo.getQName();
-            int dataType = propInfo.getDataType().intValue();
-            boolean multiValue = propInfo.getMultiValue().booleanValue();
+            OdmaType dataType = OdmaType.fromNumericId(propInfo.getDataType());
+            boolean multiValue = propInfo.isMultiValue();
             // get the property from the object
             OdmaProperty prop = obj.getProperty(propertyName);
             // print property value
             System.out.print("    ");
             System.out.print(propertyName);
             System.out.print(" (" + dataType + ")");
-            System.out.print(" [" + (multiValue ? "m" : "s" ) + "] : ");
+            System.out.print(" [" + (multiValue ? "multi" : "single" ) + "] : ");
             if(!multiValue)
             {
                 Object value = prop.getValue();
