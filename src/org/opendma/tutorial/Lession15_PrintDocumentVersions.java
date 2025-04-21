@@ -55,7 +55,7 @@ public class Lession15_PrintDocumentVersions
     
     public void printContentElements(OdmaDocument doc)
     {
-        System.out.println("Content Elements of Document \"" + doc.getTitle() + "\":");
+        System.out.println("Versions of Document \"" + doc.getTitle() + "\":");
         OdmaVersionCollection versionCollection = doc.getVersionCollection();
         if(versionCollection != null)
         {
