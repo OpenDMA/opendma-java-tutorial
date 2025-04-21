@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Iterator;
 
-import org.opendma.AdaptorManager;
 import org.opendma.api.OdmaCommonNames;
 import org.opendma.api.OdmaContent;
 import org.opendma.api.OdmaContentElement;
@@ -13,6 +12,8 @@ import org.opendma.api.OdmaDocument;
 import org.opendma.api.OdmaId;
 import org.opendma.api.OdmaReferenceContentElement;
 import org.opendma.api.OdmaSession;
+
+import com.xaldon.opendma.xmlrepo.XmlRepositorySessionProvider;
 
 public class Lession14_RetrieveDataFromContentElements
 {
@@ -34,11 +35,11 @@ public class Lession14_RetrieveDataFromContentElements
     private void run() throws Exception
     {
 
-        // register Adaptor
-        Class.forName("com.xaldon.opendma.xmlrepo.Adaptor");
-
         // get Session
-        OdmaSession session = AdaptorManager.getSession("xmlrepo:SampleRepository.xml", "tutorial", "tutorialpw");
+        XmlRepositorySessionProvider sessionProvider = new XmlRepositorySessionProvider();
+        sessionProvider.setClasspathResource("SampleRepository.xml");
+        OdmaSession session = sessionProvider.getSession();
+
         try
         {
 

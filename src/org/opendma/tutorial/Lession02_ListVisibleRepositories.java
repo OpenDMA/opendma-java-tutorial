@@ -2,9 +2,10 @@ package org.opendma.tutorial;
 
 import java.util.List;
 
-import org.opendma.AdaptorManager;
 import org.opendma.api.OdmaId;
 import org.opendma.api.OdmaSession;
+
+import com.xaldon.opendma.xmlrepo.XmlRepositorySessionProvider;
 
 public class Lession02_ListVisibleRepositories
 {
@@ -26,11 +27,11 @@ public class Lession02_ListVisibleRepositories
     private void run() throws Exception
     {
 
-        // register Adaptor
-        Class.forName("com.xaldon.opendma.xmlrepo.Adaptor");
-
         // get Session
-        OdmaSession session = AdaptorManager.getSession("xmlrepo:SampleRepository.xml", "tutorial", "tutorialpw");
+        XmlRepositorySessionProvider sessionProvider = new XmlRepositorySessionProvider();
+        sessionProvider.setClasspathResource("SampleRepository.xml");
+        OdmaSession session = sessionProvider.getSession();
+
         try
         {
             // list all visible Repositories

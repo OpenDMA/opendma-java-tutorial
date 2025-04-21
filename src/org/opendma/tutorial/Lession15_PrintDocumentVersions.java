@@ -2,11 +2,12 @@ package org.opendma.tutorial;
 
 import java.util.Iterator;
 
-import org.opendma.AdaptorManager;
 import org.opendma.api.OdmaDocument;
 import org.opendma.api.OdmaId;
 import org.opendma.api.OdmaSession;
 import org.opendma.api.OdmaVersionCollection;
+
+import com.xaldon.opendma.xmlrepo.XmlRepositorySessionProvider;
 
 public class Lession15_PrintDocumentVersions
 {
@@ -28,11 +29,11 @@ public class Lession15_PrintDocumentVersions
     private void run() throws Exception
     {
 
-        // register Adaptor
-        Class.forName("com.xaldon.opendma.xmlrepo.Adaptor");
-
         // get Session
-        OdmaSession session = AdaptorManager.getSession("xmlrepo:SampleRepository.xml", "tutorial", "tutorialpw");
+        XmlRepositorySessionProvider sessionProvider = new XmlRepositorySessionProvider();
+        sessionProvider.setClasspathResource("SampleRepository.xml");
+        OdmaSession session = sessionProvider.getSession();
+
         try
         {
 

@@ -2,7 +2,6 @@ package org.opendma.tutorial;
 
 import java.util.Iterator;
 
-import org.opendma.AdaptorManager;
 import org.opendma.api.OdmaClass;
 import org.opendma.api.OdmaId;
 import org.opendma.api.OdmaObject;
@@ -12,6 +11,8 @@ import org.opendma.api.OdmaQName;
 import org.opendma.api.OdmaRepository;
 import org.opendma.api.OdmaSession;
 import org.opendma.api.OdmaType;
+
+import com.xaldon.opendma.xmlrepo.XmlRepositorySessionProvider;
 
 public class Lession06_SimplePrintObjectProperties
 {
@@ -33,11 +34,11 @@ public class Lession06_SimplePrintObjectProperties
     private void run() throws Exception
     {
 
-        // register Adaptor
-        Class.forName("com.xaldon.opendma.xmlrepo.Adaptor");
-
         // get Session
-        OdmaSession session = AdaptorManager.getSession("xmlrepo:SampleRepository.xml", "tutorial", "tutorialpw");
+        XmlRepositorySessionProvider sessionProvider = new XmlRepositorySessionProvider();
+        sessionProvider.setClasspathResource("SampleRepository.xml");
+        OdmaSession session = sessionProvider.getSession();
+
         try
         {
 
