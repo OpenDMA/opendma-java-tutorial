@@ -99,7 +99,15 @@ public class Lession06_SimplePrintObjectProperties
                 }
                 else
                 {
-                    System.out.println(value.toString());
+                    if(value instanceof OdmaObject)
+                    {
+                        OdmaObject o = (OdmaObject) value;
+                        System.out.println(o.getId().toString() + " of class " + o.getOdmaClass().getQName());
+                    }
+                    else
+                    {
+                        System.out.println(value.toString());
+                    }
                 }
             }
             else
