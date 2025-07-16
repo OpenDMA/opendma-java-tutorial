@@ -529,8 +529,6 @@
         <Property qualifier="opendma" name="Latest" type="reference"><Value>sample-document-a1</Value></Property>
         <Property qualifier="opendma" name="Released" type="reference"><Value>sample-document-a1-v20</Value></Property>
         <Property qualifier="opendma" name="InProgress" type="reference"></Property>
-        <Property qualifier="opendma" name="CreatedAt" type="datetime"><Value>2010-01-01 00:00:00</Value></Property>
-        <Property qualifier="opendma" name="CreatedBy" type="string"><Value>SYSTEM</Value></Property>
     </OdmaObject>
 
     <OdmaObject classNamespace="tutorial" className="SampleDocument">
