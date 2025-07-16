@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<OdmaXmlRepository repositoryObjectId="sample-repo">
+<OdmaXmlRepository repositoryId="sample-repo" repositoryObjectId="sample-repo-object">
 
     <!-- The repository instance -->
 
     <OdmaObject classNamespace="tutorial" className="SampleRepositoryClass">
-        <Property qualifier="opendma" name="Id" type="id"><Value>sample-repo</Value></Property>
+        <Property qualifier="opendma" name="Id" type="id"><Value>sample-repo-object</Value></Property>
         <Property qualifier="opendma" name="Name" type="string"><Value>SampleRepository</Value></Property>
         <Property qualifier="opendma" name="DisplayName" type="string"><Value>Sample Repository for Tutorials</Value></Property>
         <Property qualifier="opendma" name="RootFolder" type="reference"><Value>sample-folder-root</Value></Property>
