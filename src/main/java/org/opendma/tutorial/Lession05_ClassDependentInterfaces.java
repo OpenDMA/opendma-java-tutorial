@@ -56,7 +56,6 @@ public class Lession05_ClassDependentInterfaces
             System.out.println("ID: " + cls.getId());
             System.out.println("Name: " + cls.getName());
             System.out.println("DispName: " + cls.getDisplayName());
-            System.out.println("Instantiable: " + cls.isInstantiable());
             System.out.println("Hidden: " + cls.isHidden());
             System.out.println("System: " + cls.isSystem());
 

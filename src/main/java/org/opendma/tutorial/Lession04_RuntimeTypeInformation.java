@@ -48,7 +48,6 @@ public class Lession04_RuntimeTypeInformation
             System.out.println("Class of the repository object:");
             System.out.println("    Name: " + cls.getProperty(OdmaCommonNames.PROPERTY_NAME).getString() );
             System.out.println("    ID: " + cls.getProperty(OdmaCommonNames.PROPERTY_ID).getId().toString() );
-            System.out.println("    Instantiable: " + cls.getProperty(OdmaCommonNames.PROPERTY_INSTANTIABLE).getBoolean().toString() );
 
             // get set of PropertyInfos
             Iterable<? extends OdmaObject> propInfos = cls.getProperty(OdmaCommonNames.PROPERTY_PROPERTIES).getReferenceIterable();
