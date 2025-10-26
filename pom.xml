@@ -21,7 +21,7 @@
         <url>https://github.com/OpenDMA/opendma-java-tutorial</url>
         <connection>scm:git:git://github.com/OpenDMA/opendma-java-tutorial.git</connection>
         <developerConnection>scm:git:ssh://git@github.com/OpenDMA/opendma-java-tutorial.git</developerConnection>
-        <tag>0.7.0</tag>
+        <tag>HEAD</tag>
     </scm>
 
     <issueManagement>
