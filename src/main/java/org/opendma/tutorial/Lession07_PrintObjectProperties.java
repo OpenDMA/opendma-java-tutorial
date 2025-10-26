@@ -156,7 +156,7 @@ public class Lession07_PrintObjectProperties
             return ((Boolean)value).toString();
         case DATETIME:
             return ((Date)value).toString();
-        case BLOB:
+        case BINARY:
             return Integer.toString(((byte[])value).length) + " octets of data";
         case REFERENCE:
             OdmaObject referencedObject = (OdmaObject)value;
