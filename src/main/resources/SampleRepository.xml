@@ -5,7 +5,7 @@
 
     <OdmaObject classNamespace="tutorial" className="SampleRepositoryClass">
         <Property qualifier="opendma" name="Id" type="id"><Value>sample-repo-object</Value></Property>
-        <Property qualifier="opendma" name="Aspects" type="reference"></Property>
+        <Property qualifier="opendma" name="Aspects" type="reference" multiValue="true"></Property>
         <Property qualifier="opendma" name="Name" type="string"><Value>SampleRepository</Value></Property>
         <Property qualifier="opendma" name="DisplayName" type="string"><Value>Sample Repository for Tutorials</Value></Property>
         <Property qualifier="opendma" name="RootFolder" type="reference"><Value>sample-folder-root</Value></Property>
@@ -18,7 +18,7 @@
 
     <OdmaObject classNamespace="opendma" className="Class">
         <Property qualifier="opendma" name="Id" type="id"><Value>sample-repo-class</Value></Property>
-        <Property qualifier="opendma" name="Aspects" type="reference"></Property>
+        <Property qualifier="opendma" name="Aspects" type="reference" multiValue="true"></Property>
         <Property qualifier="opendma" name="Name" type="string"><Value>SampleRepositoryClass</Value></Property>
         <Property qualifier="opendma" name="Namespace" type="string"><Value>tutorial</Value></Property>
         <Property qualifier="opendma" name="Parent" type="reference"><Value>opendmaClassRepository</Value></Property>
@@ -35,7 +35,7 @@
     
     <OdmaObject classNamespace="opendma" className="PropertyInfo">
         <Property qualifier="opendma" name="Id" type="id"><Value>sample-repo-name</Value></Property>
-        <Property qualifier="opendma" name="Aspects" type="reference"></Property>
+        <Property qualifier="opendma" name="Aspects" type="reference" multiValue="true"></Property>
         <Property qualifier="opendma" name="Name" type="string"><Value>RepositoryName</Value></Property>
         <Property qualifier="opendma" name="Namespace" type="string"><Value>tutorial</Value></Property>
         <Property qualifier="opendma" name="DisplayName" type="string"><Value>The internal name of this repository</Value></Property>
@@ -49,7 +49,7 @@
     
     <OdmaObject classNamespace="opendma" className="PropertyInfo">
         <Property qualifier="opendma" name="Id" type="id"><Value>sample-repo-string</Value></Property>
-        <Property qualifier="opendma" name="Aspects" type="reference"></Property>
+        <Property qualifier="opendma" name="Aspects" type="reference" multiValue="true"></Property>
         <Property qualifier="opendma" name="Name" type="string"><Value>SampleString</Value></Property>
         <Property qualifier="opendma" name="Namespace" type="string"><Value>tutorial</Value></Property>
         <Property qualifier="opendma" name="DisplayName" type="string"><Value>A sample String property</Value></Property>
@@ -63,7 +63,7 @@
     
     <OdmaObject classNamespace="opendma" className="PropertyInfo">
         <Property qualifier="opendma" name="Id" type="id"><Value>sample-repo-integer</Value></Property>
-        <Property qualifier="opendma" name="Aspects" type="reference"></Property>
+        <Property qualifier="opendma" name="Aspects" type="reference" multiValue="true"></Property>
         <Property qualifier="opendma" name="Name" type="string"><Value>SampleInteger</Value></Property>
         <Property qualifier="opendma" name="Namespace" type="string"><Value>tutorial</Value></Property>
         <Property qualifier="opendma" name="DisplayName" type="string"><Value>A sample Integer property</Value></Property>
@@ -79,7 +79,7 @@
 
     <OdmaObject classNamespace="opendma" className="Class">
         <Property qualifier="opendma" name="Id" type="id"><Value>sample-folder-class</Value></Property>
-        <Property qualifier="opendma" name="Aspects" type="reference"></Property>
+        <Property qualifier="opendma" name="Aspects" type="reference" multiValue="true"></Property>
         <Property qualifier="opendma" name="Name" type="string"><Value>SampleFolder</Value></Property>
         <Property qualifier="opendma" name="Namespace" type="string"><Value>tutorial</Value></Property>
         <Property qualifier="opendma" name="Parent" type="reference"><Value>opendmaClassObject</Value></Property>
@@ -98,7 +98,7 @@
 
     <OdmaObject classNamespace="opendma" className="Class">
         <Property qualifier="opendma" name="Id" type="id"><Value>sample-document-class</Value></Property>
-        <Property qualifier="opendma" name="Aspects" type="reference"></Property>
+        <Property qualifier="opendma" name="Aspects" type="reference" multiValue="true"></Property>
         <Property qualifier="opendma" name="Name" type="string"><Value>SampleDocument</Value></Property>
         <Property qualifier="opendma" name="Namespace" type="string"><Value>tutorial</Value></Property>
         <Property qualifier="opendma" name="Parent" type="reference"><Value>opendmaClassObject</Value></Property>
@@ -117,7 +117,7 @@
 
     <OdmaObject classNamespace="opendma" className="Class">
         <Property qualifier="opendma" name="Id" type="id"><Value>sample-datacontentelement-class</Value></Property>
-        <Property qualifier="opendma" name="Aspects" type="reference"></Property>
+        <Property qualifier="opendma" name="Aspects" type="reference" multiValue="true"></Property>
         <Property qualifier="opendma" name="Name" type="string"><Value>SampleDataContentElement</Value></Property>
         <Property qualifier="opendma" name="Namespace" type="string"><Value>tutorial</Value></Property>
         <Property qualifier="opendma" name="Parent" type="reference"><Value>opendmaClassObject</Value></Property>
@@ -134,7 +134,7 @@
 
     <OdmaObject classNamespace="opendma" className="Class">
         <Property qualifier="opendma" name="Id" type="id"><Value>sample-referencecontentelement-class</Value></Property>
-        <Property qualifier="opendma" name="Aspects" type="reference"></Property>
+        <Property qualifier="opendma" name="Aspects" type="reference" multiValue="true"></Property>
         <Property qualifier="opendma" name="Name" type="string"><Value>SampleReferenceContentElement</Value></Property>
         <Property qualifier="opendma" name="Namespace" type="string"><Value>tutorial</Value></Property>
         <Property qualifier="opendma" name="Parent" type="reference"><Value>opendmaClassObject</Value></Property>
@@ -153,7 +153,7 @@
 
     <OdmaObject classNamespace="opendma" className="Class">
         <Property qualifier="opendma" name="Id" type="id"><Value>sample-versioncollection-class</Value></Property>
-        <Property qualifier="opendma" name="Aspects" type="reference"></Property>
+        <Property qualifier="opendma" name="Aspects" type="reference" multiValue="true"></Property>
         <Property qualifier="opendma" name="Name" type="string"><Value>SampleVersionCollection</Value></Property>
         <Property qualifier="opendma" name="Namespace" type="string"><Value>tutorial</Value></Property>
         <Property qualifier="opendma" name="Parent" type="reference"><Value>opendmaClassObject</Value></Property>
@@ -172,7 +172,7 @@
 
     <OdmaObject classNamespace="opendma" className="Class">
         <Property qualifier="opendma" name="Id" type="id"><Value>sample-association-class</Value></Property>
-        <Property qualifier="opendma" name="Aspects" type="reference"></Property>
+        <Property qualifier="opendma" name="Aspects" type="reference" multiValue="true"></Property>
         <Property qualifier="opendma" name="Name" type="string"><Value>SampleAssociation</Value></Property>
         <Property qualifier="opendma" name="Namespace" type="string"><Value>tutorial</Value></Property>
         <Property qualifier="opendma" name="Parent" type="reference"><Value>opendmaClassObject</Value></Property>
@@ -191,7 +191,7 @@
     
     <OdmaObject classNamespace="opendma" className="PropertyInfo">
         <Property qualifier="opendma" name="Id" type="id"><Value>sample-contact-firstname</Value></Property>
-        <Property qualifier="opendma" name="Aspects" type="reference"></Property>
+        <Property qualifier="opendma" name="Aspects" type="reference" multiValue="true"></Property>
         <Property qualifier="opendma" name="Name" type="string"><Value>FirstName</Value></Property>
         <Property qualifier="opendma" name="Namespace" type="string"><Value>tutorial</Value></Property>
         <Property qualifier="opendma" name="DisplayName" type="string"><Value>First Name</Value></Property>
@@ -205,7 +205,7 @@
     
     <OdmaObject classNamespace="opendma" className="PropertyInfo">
         <Property qualifier="opendma" name="Id" type="id"><Value>sample-contact-lastname</Value></Property>
-        <Property qualifier="opendma" name="Aspects" type="reference"></Property>
+        <Property qualifier="opendma" name="Aspects" type="reference" multiValue="true"></Property>
         <Property qualifier="opendma" name="Name" type="string"><Value>LastName</Value></Property>
         <Property qualifier="opendma" name="Namespace" type="string"><Value>tutorial</Value></Property>
         <Property qualifier="opendma" name="DisplayName" type="string"><Value>Last Name</Value></Property>
@@ -219,7 +219,7 @@
     
     <OdmaObject classNamespace="opendma" className="PropertyInfo">
         <Property qualifier="opendma" name="Id" type="id"><Value>sample-contact-email</Value></Property>
-        <Property qualifier="opendma" name="Aspects" type="reference"></Property>
+        <Property qualifier="opendma" name="Aspects" type="reference" multiValue="true"></Property>
         <Property qualifier="opendma" name="Name" type="string"><Value>EmailAddress</Value></Property>
         <Property qualifier="opendma" name="Namespace" type="string"><Value>tutorial</Value></Property>
         <Property qualifier="opendma" name="DisplayName" type="string"><Value>Email Address</Value></Property>
@@ -233,7 +233,7 @@
 
     <OdmaObject classNamespace="opendma" className="Class">
         <Property qualifier="opendma" name="Id" type="id"><Value>sample-contact-class</Value></Property>
-        <Property qualifier="opendma" name="Aspects" type="reference"></Property>
+        <Property qualifier="opendma" name="Aspects" type="reference" multiValue="true"></Property>
         <Property qualifier="opendma" name="Name" type="string"><Value>SampleContact</Value></Property>
         <Property qualifier="opendma" name="Namespace" type="string"><Value>tutorial</Value></Property>
         <Property qualifier="opendma" name="Parent" type="reference"><Value>opendmaClassObject</Value></Property>
@@ -252,7 +252,7 @@
     
     <OdmaObject classNamespace="opendma" className="PropertyInfo">
         <Property qualifier="opendma" name="Id" type="id"><Value>sample-event-title</Value></Property>
-        <Property qualifier="opendma" name="Aspects" type="reference"></Property>
+        <Property qualifier="opendma" name="Aspects" type="reference" multiValue="true"></Property>
         <Property qualifier="opendma" name="Name" type="string"><Value>Title</Value></Property>
         <Property qualifier="opendma" name="Namespace" type="string"><Value>tutorial</Value></Property>
         <Property qualifier="opendma" name="DisplayName" type="string"><Value>Title</Value></Property>
@@ -266,7 +266,7 @@
     
     <OdmaObject classNamespace="opendma" className="PropertyInfo">
         <Property qualifier="opendma" name="Id" type="id"><Value>sample-event-date</Value></Property>
-        <Property qualifier="opendma" name="Aspects" type="reference"></Property>
+        <Property qualifier="opendma" name="Aspects" type="reference" multiValue="true"></Property>
         <Property qualifier="opendma" name="Name" type="string"><Value>Date</Value></Property>
         <Property qualifier="opendma" name="Namespace" type="string"><Value>tutorial</Value></Property>
         <Property qualifier="opendma" name="DisplayName" type="string"><Value>Date</Value></Property>
@@ -280,7 +280,7 @@
 
     <OdmaObject classNamespace="opendma" className="Class">
         <Property qualifier="opendma" name="Id" type="id"><Value>sample-event-class</Value></Property>
-        <Property qualifier="opendma" name="Aspects" type="reference"></Property>
+        <Property qualifier="opendma" name="Aspects" type="reference" multiValue="true"></Property>
         <Property qualifier="opendma" name="Name" type="string"><Value>SampleEvent</Value></Property>
         <Property qualifier="opendma" name="Namespace" type="string"><Value>tutorial</Value></Property>
         <Property qualifier="opendma" name="Parent" type="reference"><Value>opendmaClassObject</Value></Property>
@@ -299,7 +299,7 @@
 
     <OdmaObject classNamespace="tutorial" className="SampleFolder">
         <Property qualifier="opendma" name="Id" type="id"><Value>sample-folder-root</Value></Property>
-        <Property qualifier="opendma" name="Aspects" type="reference"></Property>
+        <Property qualifier="opendma" name="Aspects" type="reference" multiValue="true"></Property>
         <Property qualifier="opendma" name="Title" type="string"><Value>ROOT</Value></Property>
         <Property qualifier="opendma" name="SubFolders" type="reference" multiValue="true"><Value>sample-folder-a</Value><Value>sample-folder-b</Value><Value>sample-folder-c</Value></Property>
         <Property qualifier="opendma" name="Associations" type="reference" multiValue="true"></Property>
@@ -311,7 +311,7 @@
 
     <OdmaObject classNamespace="tutorial" className="SampleFolder">
         <Property qualifier="opendma" name="Id" type="id"><Value>sample-folder-a</Value></Property>
-        <Property qualifier="opendma" name="Aspects" type="reference"></Property>
+        <Property qualifier="opendma" name="Aspects" type="reference" multiValue="true"></Property>
         <Property qualifier="opendma" name="Title" type="string"><Value>TestA</Value></Property>
         <Property qualifier="opendma" name="SubFolders" type="reference" multiValue="true"><Value>sample-folder-a1</Value><Value>sample-folder-a2</Value></Property>
         <Property qualifier="opendma" name="Associations" type="reference" multiValue="true"><Value>sample-association-a1</Value><Value>sample-association-a2</Value><Value>sample-association-a3</Value><Value>sample-association-a4</Value></Property>
@@ -323,7 +323,7 @@
 
     <OdmaObject classNamespace="tutorial" className="SampleFolder">
         <Property qualifier="opendma" name="Id" type="id"><Value>sample-folder-b</Value></Property>
-        <Property qualifier="opendma" name="Aspects" type="reference"></Property>
+        <Property qualifier="opendma" name="Aspects" type="reference" multiValue="true"></Property>
         <Property qualifier="opendma" name="Title" type="string"><Value>TestB</Value></Property>
         <Property qualifier="opendma" name="SubFolders" type="reference" multiValue="true"><Value>sample-folder-b1</Value><Value>sample-folder-b2</Value></Property>
         <Property qualifier="opendma" name="Associations" type="reference" multiValue="true"><Value>sample-association-b1</Value><Value>sample-association-b2</Value></Property>
@@ -335,7 +335,7 @@
 
     <OdmaObject classNamespace="tutorial" className="SampleFolder">
         <Property qualifier="opendma" name="Id" type="id"><Value>sample-folder-c</Value></Property>
-        <Property qualifier="opendma" name="Aspects" type="reference"></Property>
+        <Property qualifier="opendma" name="Aspects" type="reference" multiValue="true"></Property>
         <Property qualifier="opendma" name="Title" type="string"><Value>TestC</Value></Property>
         <Property qualifier="opendma" name="SubFolders" type="reference" multiValue="true"><Value>sample-folder-c1</Value><Value>sample-folder-c2</Value></Property>
         <Property qualifier="opendma" name="Associations" type="reference" multiValue="true"></Property>
@@ -347,7 +347,7 @@
 
     <OdmaObject classNamespace="tutorial" className="SampleFolder">
         <Property qualifier="opendma" name="Id" type="id"><Value>sample-folder-a1</Value></Property>
-        <Property qualifier="opendma" name="Aspects" type="reference"></Property>
+        <Property qualifier="opendma" name="Aspects" type="reference" multiValue="true"></Property>
         <Property qualifier="opendma" name="Title" type="string"><Value>TestA1</Value></Property>
         <Property qualifier="opendma" name="SubFolders" type="reference" multiValue="true"></Property>
         <Property qualifier="opendma" name="Associations" type="reference" multiValue="true"></Property>
@@ -359,7 +359,7 @@
 
     <OdmaObject classNamespace="tutorial" className="SampleFolder">
         <Property qualifier="opendma" name="Id" type="id"><Value>sample-folder-a2</Value></Property>
-        <Property qualifier="opendma" name="Aspects" type="reference"></Property>
+        <Property qualifier="opendma" name="Aspects" type="reference" multiValue="true"></Property>
         <Property qualifier="opendma" name="Title" type="string"><Value>TestA2</Value></Property>
         <Property qualifier="opendma" name="SubFolders" type="reference" multiValue="true"></Property>
         <Property qualifier="opendma" name="Associations" type="reference" multiValue="true"></Property>
@@ -371,7 +371,7 @@
 
     <OdmaObject classNamespace="tutorial" className="SampleFolder">
         <Property qualifier="opendma" name="Id" type="id"><Value>sample-folder-b1</Value></Property>
-        <Property qualifier="opendma" name="Aspects" type="reference"></Property>
+        <Property qualifier="opendma" name="Aspects" type="reference" multiValue="true"></Property>
         <Property qualifier="opendma" name="Title" type="string"><Value>TestB1</Value></Property>
         <Property qualifier="opendma" name="SubFolders" type="reference" multiValue="true"></Property>
         <Property qualifier="opendma" name="Associations" type="reference" multiValue="true"></Property>
@@ -383,7 +383,7 @@
 
     <OdmaObject classNamespace="tutorial" className="SampleFolder">
         <Property qualifier="opendma" name="Id" type="id"><Value>sample-folder-b2</Value></Property>
-        <Property qualifier="opendma" name="Aspects" type="reference"></Property>
+        <Property qualifier="opendma" name="Aspects" type="reference" multiValue="true"></Property>
         <Property qualifier="opendma" name="Title" type="string"><Value>TestB2</Value></Property>
         <Property qualifier="opendma" name="SubFolders" type="reference" multiValue="true"></Property>
         <Property qualifier="opendma" name="Associations" type="reference" multiValue="true"></Property>
@@ -395,7 +395,7 @@
 
     <OdmaObject classNamespace="tutorial" className="SampleFolder">
         <Property qualifier="opendma" name="Id" type="id"><Value>sample-folder-c1</Value></Property>
-        <Property qualifier="opendma" name="Aspects" type="reference"></Property>
+        <Property qualifier="opendma" name="Aspects" type="reference" multiValue="true"></Property>
         <Property qualifier="opendma" name="Title" type="string"><Value>TestC1</Value></Property>
         <Property qualifier="opendma" name="SubFolders" type="reference" multiValue="true"></Property>
         <Property qualifier="opendma" name="Associations" type="reference" multiValue="true"></Property>
@@ -407,7 +407,7 @@
 
     <OdmaObject classNamespace="tutorial" className="SampleFolder">
         <Property qualifier="opendma" name="Id" type="id"><Value>sample-folder-c2</Value></Property>
-        <Property qualifier="opendma" name="Aspects" type="reference"></Property>
+        <Property qualifier="opendma" name="Aspects" type="reference" multiValue="true"></Property>
         <Property qualifier="opendma" name="Title" type="string"><Value>TestC2</Value></Property>
         <Property qualifier="opendma" name="SubFolders" type="reference" multiValue="true"></Property>
         <Property qualifier="opendma" name="Associations" type="reference" multiValue="true"></Property>
@@ -419,7 +419,7 @@
 
     <OdmaObject classNamespace="tutorial" className="SampleDocument">
         <Property qualifier="opendma" name="Id" type="id"><Value>sample-document-a1</Value></Property>
-        <Property qualifier="opendma" name="Aspects" type="reference"></Property>
+        <Property qualifier="opendma" name="Aspects" type="reference" multiValue="true"></Property>
         <Property qualifier="opendma" name="Title" type="string"><Value>Some Word file</Value></Property>
         <Property qualifier="opendma" name="Version" type="string"><Value>2.1</Value></Property>
         <Property qualifier="opendma" name="VersionCollection" type="reference"><Value>sample-versioncollection-a1</Value></Property>
@@ -439,7 +439,7 @@
 
     <OdmaObject classNamespace="tutorial" className="SampleDataContentElement">
         <Property qualifier="opendma" name="Id" type="id"><Value>sample-document-a1-dacoel</Value></Property>
-        <Property qualifier="opendma" name="Aspects" type="reference"></Property>
+        <Property qualifier="opendma" name="Aspects" type="reference" multiValue="true"></Property>
         <Property qualifier="opendma" name="ContentType" type="string"><Value>application/msword</Value></Property>
         <Property qualifier="opendma" name="Position" type="integer"><Value>0</Value></Property>
         <Property qualifier="opendma" name="Content" type="content"></Property>
@@ -449,7 +449,7 @@
 
     <OdmaObject classNamespace="tutorial" className="SampleAssociation">
         <Property qualifier="opendma" name="Id" type="id"><Value>sample-association-a1</Value></Property>
-        <Property qualifier="opendma" name="Aspects" type="reference"></Property>
+        <Property qualifier="opendma" name="Aspects" type="reference" multiValue="true"></Property>
         <Property qualifier="opendma" name="Name" type="string"><Value>SomeWordfile.doc</Value></Property>
         <Property qualifier="opendma" name="Container" type="reference"><Value>sample-folder-a</Value></Property>
         <Property qualifier="opendma" name="Containable" type="reference"><Value>sample-document-a1</Value></Property>
@@ -461,7 +461,7 @@
 
     <OdmaObject classNamespace="tutorial" className="SampleDocument">
         <Property qualifier="opendma" name="Id" type="id"><Value>sample-document-a1-v20</Value></Property>
-        <Property qualifier="opendma" name="Aspects" type="reference"></Property>
+        <Property qualifier="opendma" name="Aspects" type="reference" multiValue="true"></Property>
         <Property qualifier="opendma" name="Title" type="string"><Value>Some Word file</Value></Property>
         <Property qualifier="opendma" name="Version" type="string"><Value>2.0</Value></Property>
         <Property qualifier="opendma" name="VersionCollection" type="reference"><Value>sample-versioncollection-a1</Value></Property>
@@ -481,7 +481,7 @@
 
     <OdmaObject classNamespace="tutorial" className="SampleDocument">
         <Property qualifier="opendma" name="Id" type="id"><Value>sample-document-a1-v13</Value></Property>
-        <Property qualifier="opendma" name="Aspects" type="reference"></Property>
+        <Property qualifier="opendma" name="Aspects" type="reference" multiValue="true"></Property>
         <Property qualifier="opendma" name="Title" type="string"><Value>Some Word file</Value></Property>
         <Property qualifier="opendma" name="Version" type="string"><Value>1.3</Value></Property>
         <Property qualifier="opendma" name="VersionCollection" type="reference"><Value>sample-versioncollection-a1</Value></Property>
@@ -501,7 +501,7 @@
 
     <OdmaObject classNamespace="tutorial" className="SampleDocument">
         <Property qualifier="opendma" name="Id" type="id"><Value>sample-document-a1-v12</Value></Property>
-        <Property qualifier="opendma" name="Aspects" type="reference"></Property>
+        <Property qualifier="opendma" name="Aspects" type="reference" multiValue="true"></Property>
         <Property qualifier="opendma" name="Title" type="string"><Value>Some Word File</Value></Property>
         <Property qualifier="opendma" name="Version" type="string"><Value>1.2</Value></Property>
         <Property qualifier="opendma" name="VersionCollection" type="reference"><Value>sample-versioncollection-a1</Value></Property>
@@ -521,7 +521,7 @@
 
     <OdmaObject classNamespace="tutorial" className="SampleDocument">
         <Property qualifier="opendma" name="Id" type="id"><Value>sample-document-a1-v11</Value></Property>
-        <Property qualifier="opendma" name="Aspects" type="reference"></Property>
+        <Property qualifier="opendma" name="Aspects" type="reference" multiValue="true"></Property>
         <Property qualifier="opendma" name="Title" type="string"><Value>Some file</Value></Property>
         <Property qualifier="opendma" name="Version" type="string"><Value>1.1</Value></Property>
         <Property qualifier="opendma" name="VersionCollection" type="reference"><Value>sample-versioncollection-a1</Value></Property>
@@ -541,7 +541,7 @@
 
     <OdmaObject classNamespace="tutorial" className="SampleDocument">
         <Property qualifier="opendma" name="Id" type="id"><Value>sample-document-a1-v10</Value></Property>
-        <Property qualifier="opendma" name="Aspects" type="reference"></Property>
+        <Property qualifier="opendma" name="Aspects" type="reference" multiValue="true"></Property>
         <Property qualifier="opendma" name="Title" type="string"><Value>Soeme File</Value></Property>
         <Property qualifier="opendma" name="Version" type="string"><Value>1.0</Value></Property>
         <Property qualifier="opendma" name="VersionCollection" type="reference"><Value>sample-versioncollection-a1</Value></Property>
@@ -561,7 +561,7 @@
 
     <OdmaObject classNamespace="tutorial" className="SampleVersionCollection">
         <Property qualifier="opendma" name="Id" type="id"><Value>sample-versioncollection-a1</Value></Property>
-        <Property qualifier="opendma" name="Aspects" type="reference"></Property>
+        <Property qualifier="opendma" name="Aspects" type="reference" multiValue="true"></Property>
         <Property qualifier="opendma" name="Versions" type="reference" multiValue="true"><Value>sample-document-a1-v10</Value><Value>sample-document-a1-v11</Value><Value>sample-document-a1-v12</Value><Value>sample-document-a1-v13</Value><Value>sample-document-a1-v20</Value><Value>sample-document-a1</Value></Property>
         <Property qualifier="opendma" name="Latest" type="reference"><Value>sample-document-a1</Value></Property>
         <Property qualifier="opendma" name="Released" type="reference"><Value>sample-document-a1-v20</Value></Property>
@@ -570,7 +570,7 @@
 
     <OdmaObject classNamespace="tutorial" className="SampleDocument">
         <Property qualifier="opendma" name="Id" type="id"><Value>sample-document-a2</Value></Property>
-        <Property qualifier="opendma" name="Aspects" type="reference"></Property>
+        <Property qualifier="opendma" name="Aspects" type="reference" multiValue="true"></Property>
         <Property qualifier="opendma" name="Title" type="string"><Value>Some Movie</Value></Property>
         <Property qualifier="opendma" name="Version" type="string"><Value>1.0</Value></Property>
         <Property qualifier="opendma" name="VersionCollection" type="reference"></Property>
@@ -590,7 +590,7 @@
 
     <OdmaObject classNamespace="tutorial" className="SampleDataContentElement">
         <Property qualifier="opendma" name="Id" type="id"><Value>sample-document-a2-dacoel-1</Value></Property>
-        <Property qualifier="opendma" name="Aspects" type="reference"></Property>
+        <Property qualifier="opendma" name="Aspects" type="reference" multiValue="true"></Property>
         <Property qualifier="opendma" name="ContentType" type="string"><Value>video/mp4</Value></Property>
         <Property qualifier="opendma" name="Position" type="integer"><Value>0</Value></Property>
         <Property qualifier="opendma" name="Content" type="content"><Value>sample-content.bin</Value></Property>
@@ -600,7 +600,7 @@
 
     <OdmaObject classNamespace="tutorial" className="SampleDataContentElement">
         <Property qualifier="opendma" name="Id" type="id"><Value>sample-document-a2-dacoel-2</Value></Property>
-        <Property qualifier="opendma" name="Aspects" type="reference"></Property>
+        <Property qualifier="opendma" name="Aspects" type="reference" multiValue="true"></Property>
         <Property qualifier="opendma" name="ContentType" type="string"><Value>video/mp4</Value></Property>
         <Property qualifier="opendma" name="Position" type="integer"><Value>1</Value></Property>
         <Property qualifier="opendma" name="Content" type="content"><Value>sample-content.bin</Value></Property>
@@ -610,7 +610,7 @@
 
     <OdmaObject classNamespace="tutorial" className="SampleReferenceContentElement">
         <Property qualifier="opendma" name="Id" type="id"><Value>sample-document-a2-recoel-3</Value></Property>
-        <Property qualifier="opendma" name="Aspects" type="reference"></Property>
+        <Property qualifier="opendma" name="Aspects" type="reference" multiValue="true"></Property>
         <Property qualifier="opendma" name="ContentType" type="string"><Value>video/mp4</Value></Property>
         <Property qualifier="opendma" name="Position" type="integer"><Value>2</Value></Property>
         <Property qualifier="opendma" name="Location" type="string"><Value>http://media.example.com/path/to/Scene3.mp4</Value></Property>
@@ -618,7 +618,7 @@
 
     <OdmaObject classNamespace="tutorial" className="SampleAssociation">
         <Property qualifier="opendma" name="Id" type="id"><Value>sample-association-a2</Value></Property>
-        <Property qualifier="opendma" name="Aspects" type="reference"></Property>
+        <Property qualifier="opendma" name="Aspects" type="reference" multiValue="true"></Property>
         <Property qualifier="opendma" name="Name" type="string"><Value>SomeMovie.mp4</Value></Property>
         <Property qualifier="opendma" name="Container" type="reference"><Value>sample-folder-a</Value></Property>
         <Property qualifier="opendma" name="Containable" type="reference"><Value>sample-document-a2</Value></Property>
@@ -630,7 +630,7 @@
 
     <OdmaObject classNamespace="tutorial" className="SampleContact">
         <Property qualifier="opendma" name="Id" type="id"><Value>contact-1</Value></Property>
-        <Property qualifier="opendma" name="Aspects" type="reference"></Property>
+        <Property qualifier="opendma" name="Aspects" type="reference" multiValue="true"></Property>
         <Property qualifier="tutorial" name="FirstName" type="string"><Value>Joe</Value></Property>
         <Property qualifier="tutorial" name="LastName" type="string"><Value>Sixpack</Value></Property>
         <Property qualifier="tutorial" name="EmailAddress" type="string"><Value>joe.sixpack@example.com</Value></Property>
@@ -638,7 +638,7 @@
 
     <OdmaObject classNamespace="tutorial" className="SampleAssociation">
         <Property qualifier="opendma" name="Id" type="id"><Value>sample-association-a3</Value></Property>
-        <Property qualifier="opendma" name="Aspects" type="reference"></Property>
+        <Property qualifier="opendma" name="Aspects" type="reference" multiValue="true"></Property>
         <Property qualifier="opendma" name="Name" type="string"><Value>Sixpack, Joe</Value></Property>
         <Property qualifier="opendma" name="Container" type="reference"><Value>sample-folder-a</Value></Property>
         <Property qualifier="opendma" name="Containable" type="reference"><Value>contact-1</Value></Property>
@@ -650,14 +650,14 @@
 
     <OdmaObject classNamespace="tutorial" className="SampleEvent">
         <Property qualifier="opendma" name="Id" type="id"><Value>event-1</Value></Property>
-        <Property qualifier="opendma" name="Aspects" type="reference"></Property>
+        <Property qualifier="opendma" name="Aspects" type="reference" multiValue="true"></Property>
         <Property qualifier="tutorial" name="Title" type="string"><Value>Christmas</Value></Property>
         <Property qualifier="tutorial" name="Date" type="DateTime"><Value>2010-12-24 00:00:00</Value></Property>
     </OdmaObject>
 
     <OdmaObject classNamespace="tutorial" className="SampleAssociation">
         <Property qualifier="opendma" name="Id" type="id"><Value>sample-association-a4</Value></Property>
-        <Property qualifier="opendma" name="Aspects" type="reference"></Property>
+        <Property qualifier="opendma" name="Aspects" type="reference" multiValue="true"></Property>
         <Property qualifier="opendma" name="Name" type="string"><Value>Christmas</Value></Property>
         <Property qualifier="opendma" name="Container" type="reference"><Value>sample-folder-a</Value></Property>
         <Property qualifier="opendma" name="Containable" type="reference"><Value>event-1</Value></Property>
@@ -669,7 +669,7 @@
 
     <OdmaObject classNamespace="tutorial" className="SampleDocument">
         <Property qualifier="opendma" name="Id" type="id"><Value>sample-document-b1</Value></Property>
-        <Property qualifier="opendma" name="Aspects" type="reference"></Property>
+        <Property qualifier="opendma" name="Aspects" type="reference" multiValue="true"></Property>
         <Property qualifier="opendma" name="Title" type="string"><Value>Another Word file</Value></Property>
         <Property qualifier="opendma" name="Version" type="string"><Value>1.0</Value></Property>
         <Property qualifier="opendma" name="VersionCollection" type="reference"></Property>
@@ -689,7 +689,7 @@
 
     <OdmaObject classNamespace="tutorial" className="SampleDataContentElement">
         <Property qualifier="opendma" name="Id" type="id"><Value>sample-document-b1-dacoel</Value></Property>
-        <Property qualifier="opendma" name="Aspects" type="reference"></Property>
+        <Property qualifier="opendma" name="Aspects" type="reference" multiValue="true"></Property>
         <Property qualifier="opendma" name="ContentType" type="string"><Value>application/msword</Value></Property>
         <Property qualifier="opendma" name="Position" type="integer"><Value>0</Value></Property>
         <Property qualifier="opendma" name="Content" type="content"></Property>
@@ -699,7 +699,7 @@
 
     <OdmaObject classNamespace="tutorial" className="SampleAssociation">
         <Property qualifier="opendma" name="Id" type="id"><Value>sample-association-b1</Value></Property>
-        <Property qualifier="opendma" name="Aspects" type="reference"></Property>
+        <Property qualifier="opendma" name="Aspects" type="reference" multiValue="true"></Property>
         <Property qualifier="opendma" name="Name" type="string"><Value>AnotherWordfile.doc</Value></Property>
         <Property qualifier="opendma" name="Container" type="reference"><Value>sample-folder-b</Value></Property>
         <Property qualifier="opendma" name="Containable" type="reference"><Value>sample-document-b1</Value></Property>
@@ -711,7 +711,7 @@
 
     <OdmaObject classNamespace="tutorial" className="SampleDocument">
         <Property qualifier="opendma" name="Id" type="id"><Value>sample-document-b2</Value></Property>
-        <Property qualifier="opendma" name="Aspects" type="reference"></Property>
+        <Property qualifier="opendma" name="Aspects" type="reference" multiValue="true"></Property>
         <Property qualifier="opendma" name="Title" type="string"><Value>Another Movie</Value></Property>
         <Property qualifier="opendma" name="Version" type="string"><Value>1.0</Value></Property>
         <Property qualifier="opendma" name="VersionCollection" type="reference"></Property>
@@ -731,7 +731,7 @@
 
     <OdmaObject classNamespace="tutorial" className="SampleDataContentElement">
         <Property qualifier="opendma" name="Id" type="id"><Value>sample-document-b2-dacoel</Value></Property>
-        <Property qualifier="opendma" name="Aspects" type="reference"></Property>
+        <Property qualifier="opendma" name="Aspects" type="reference" multiValue="true"></Property>
         <Property qualifier="opendma" name="ContentType" type="string"><Value>video/mp4</Value></Property>
         <Property qualifier="opendma" name="Position" type="integer"><Value>0</Value></Property>
         <Property qualifier="opendma" name="Content" type="content"></Property>
@@ -741,7 +741,7 @@
 
     <OdmaObject classNamespace="tutorial" className="SampleAssociation">
         <Property qualifier="opendma" name="Id" type="id"><Value>sample-association-b2</Value></Property>
-        <Property qualifier="opendma" name="Aspects" type="reference"></Property>
+        <Property qualifier="opendma" name="Aspects" type="reference" multiValue="true"></Property>
         <Property qualifier="opendma" name="Name" type="string"><Value>AnotherMovie.mp4</Value></Property>
         <Property qualifier="opendma" name="Container" type="reference"><Value>sample-folder-b</Value></Property>
         <Property qualifier="opendma" name="Containable" type="reference"><Value>sample-document-b2</Value></Property>
