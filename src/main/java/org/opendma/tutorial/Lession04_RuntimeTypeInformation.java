@@ -61,9 +61,9 @@ public class Lession04_RuntimeTypeInformation
                 System.out.println("    " + propInfo.getProperty(OdmaCommonNames.PROPERTY_NAME).getString());
             }
             
-            // get the parent
-            OdmaObject parentCls = cls.getProperty(OdmaCommonNames.PROPERTY_PARENT).getReference();
-            System.out.println("Parent: " + parentCls.getProperty(OdmaCommonNames.PROPERTY_NAME).getString());
+            // get the super class
+            OdmaObject superCls = cls.getProperty(OdmaCommonNames.PROPERTY_SUPERCLASS).getReference();
+            System.out.println("Super class: " + superCls.getProperty(OdmaCommonNames.PROPERTY_NAME).getString());
             
         }
         finally

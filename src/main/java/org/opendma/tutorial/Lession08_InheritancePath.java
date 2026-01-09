@@ -1,7 +1,5 @@
 package org.opendma.tutorial;
 
-import java.util.Iterator;
-
 import org.opendma.api.OdmaClass;
 import org.opendma.api.OdmaId;
 import org.opendma.api.OdmaPropertyInfo;
@@ -52,10 +50,8 @@ public class Lession08_InheritancePath
                 // get enumeration of declared properties
                 Iterable<OdmaPropertyInfo> propInfos = clazz.getDeclaredProperties();
                 // iterate over declared PropertyInfos
-                Iterator<OdmaPropertyInfo> itPropInfos = propInfos.iterator();
-                while(itPropInfos.hasNext())
+                for(OdmaPropertyInfo propInfo : propInfos)
                 {
-                    OdmaPropertyInfo propInfo = itPropInfos.next();
                     System.out.println("    "+propInfo.getQName());
                 }
                 // get next class in hierarchy path

@@ -1,7 +1,5 @@
 package org.opendma.tutorial;
 
-import java.util.Iterator;
-
 import org.opendma.api.OdmaClass;
 import org.opendma.api.OdmaId;
 import org.opendma.api.OdmaObject;
@@ -76,10 +74,8 @@ public class Lession06_SimplePrintObjectProperties
         // get enumeration of all properties
         Iterable<OdmaPropertyInfo> propInfos = cls.getProperties();
         // iterate over all PropertyInfos
-        Iterator<OdmaPropertyInfo> itPropInfos = propInfos.iterator();
-        while(itPropInfos.hasNext())
+        for(OdmaPropertyInfo propInfo : propInfos)
         {
-            OdmaPropertyInfo propInfo = itPropInfos.next();
             OdmaQName propertyName = propInfo.getQName();
             OdmaType dataType = OdmaType.fromNumericId(propInfo.getDataType());
             boolean multiValue = propInfo.isMultiValue();
@@ -99,7 +95,7 @@ public class Lession06_SimplePrintObjectProperties
                 }
                 else
                 {
-                    if(value instanceof OdmaObject)
+                    if(dataType == OdmaType.REFERENCE)
                     {
                         OdmaObject o = (OdmaObject) value;
                         System.out.println(o.getId().toString() + " of class " + o.getOdmaClass().getQName());

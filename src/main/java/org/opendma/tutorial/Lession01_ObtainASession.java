@@ -50,7 +50,7 @@ public class Lession01_ObtainASession
             System.out.println("Session closed.");
         }
         
-        // ----- Option 1: OdmaAdaptorDiscovery -----
+        // ----- Option 2: OdmaAdaptorDiscovery -----
         
         // instantiate a new OdmaAdaptorDiscovery and try to find a suitable adaptor
         System.out.println("Discovering the OpenDMA XML-Repository adaptor...");

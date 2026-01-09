@@ -1,7 +1,5 @@
 package org.opendma.tutorial;
 
-import java.util.Iterator;
-
 import org.opendma.api.OdmaFolder;
 import org.opendma.api.OdmaId;
 import org.opendma.api.OdmaRepository;
@@ -67,14 +65,9 @@ public class Lession10_PrintFolderTree
             System.out.print(" ");
         }
         System.out.println(folder.getTitle());
-        Iterable<OdmaFolder> subFolders = folder.getSubFolders();
-        if(subFolders != null)
+        for(OdmaFolder subFolder : folder.getSubFolders())
         {
-            Iterator<OdmaFolder> itSubFolders = subFolders.iterator();
-            while(itSubFolders.hasNext())
-            {
-                iterativePrintFolderTree(itSubFolders.next(),indent+1);
-            }
+            iterativePrintFolderTree(subFolder,indent+1);
         }
     }
 

@@ -1,7 +1,5 @@
 package org.opendma.tutorial;
 
-import java.util.Iterator;
-
 import org.opendma.api.OdmaContentElement;
 import org.opendma.api.OdmaDocument;
 import org.opendma.api.OdmaId;
@@ -57,15 +55,9 @@ public class Lession13_PrintDocumentContentElements
     public void printContentElements(OdmaDocument doc)
     {
         System.out.println("Content Elements of Document \"" + doc.getTitle() + "\":");
-        Iterable<OdmaContentElement> contentElements = doc.getContentElements();
-        if(contentElements != null)
+        for(OdmaContentElement contElem : doc.getContentElements())
         {
-            Iterator<OdmaContentElement> itContentElements = contentElements.iterator();
-            while(itContentElements.hasNext())
-            {
-                OdmaContentElement contElem = itContentElements.next();
-                System.out.println("  Pos " + contElem.getPosition() + " of type " + contElem.getContentType() + " as " + contElem.getOdmaClass().getQName() );
-            }
+            System.out.println("  Pos " + contElem.getPosition() + " of type " + contElem.getContentType() + " as " + contElem.getOdmaClass().getQName() );
         }
     }
 

@@ -1,7 +1,5 @@
 package org.opendma.tutorial;
 
-import java.util.Iterator;
-
 import org.opendma.api.OdmaClass;
 import org.opendma.api.OdmaId;
 import org.opendma.api.OdmaRepository;
@@ -60,14 +58,9 @@ public class Lession09_PrintClassTree
             System.out.print(" ");
         }
         System.out.println(cls.getQName());
-        Iterable<OdmaClass> subClasses = cls.getSubClasses();
-        if(subClasses != null)
+        for(OdmaClass subClass : cls.getSubClasses())
         {
-            Iterator<OdmaClass> itSubClasses = subClasses.iterator();
-            while(itSubClasses.hasNext())
-            {
-                iterativePrintClassAndSubclasses(itSubClasses.next(),indent+1);
-            }
+            iterativePrintClassAndSubclasses(subClass,indent+1);
         }
     }
 

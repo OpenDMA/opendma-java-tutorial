@@ -1,7 +1,5 @@
 package org.opendma.tutorial;
 
-import java.util.Iterator;
-
 import org.opendma.api.OdmaDocument;
 import org.opendma.api.OdmaId;
 import org.opendma.api.OdmaSession;
@@ -67,16 +65,10 @@ public class Lession15_PrintDocumentVersions
             System.out.println("  Released: "+(released==null?"null":released.getVersion()+" ID: "+released.getId()));
             System.out.println("  InProgress: "+(inProgress==null?"null":inProgress.getVersion()+" ID: "+inProgress.getId()));
             System.out.println("  All Versions:");
-            Iterable<OdmaDocument> allVersions = versionCollection.getVersions();
-            if(allVersions != null)
+            for(OdmaDocument ver : versionCollection.getVersions())
             {
-                Iterator<OdmaDocument> itAllVersions = allVersions.iterator();
-                while(itAllVersions.hasNext())
-                {
-                    OdmaDocument ver = itAllVersions.next();
-                    System.out.println("    "+ver.getVersion()+" ID: "+ver.getId());
-                    System.out.println("        Title: "+ver.getTitle());
-                }
+                System.out.println("    "+ver.getVersion()+" ID: "+ver.getId());
+                System.out.println("        Title: "+ver.getTitle());
             }
         }
         else

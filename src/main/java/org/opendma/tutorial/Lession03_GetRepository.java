@@ -49,7 +49,7 @@ public class Lession03_GetRepository
             repo.getProperty(OdmaCommonNames.PROPERTY_DISPLAYNAME);
             
             // print out the display name
-            System.out.println("DispName: " + (String)propDisplayName.getValue() );
+            System.out.println("DispName: " + propDisplayName.getValue() );
             System.out.println("DispName: " + propDisplayName.getString() );
             
         }

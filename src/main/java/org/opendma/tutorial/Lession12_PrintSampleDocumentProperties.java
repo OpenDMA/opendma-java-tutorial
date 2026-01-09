@@ -69,10 +69,8 @@ public class Lession12_PrintSampleDocumentProperties
         // get enumeration of all properties
         Iterable<OdmaPropertyInfo> propInfos = cls.getProperties();
         // iterate over all PropertyInfos
-        Iterator<OdmaPropertyInfo> itPropInfos = propInfos.iterator();
-        while(itPropInfos.hasNext())
+        for(OdmaPropertyInfo propInfo : propInfos)
         {
-            OdmaPropertyInfo propInfo = itPropInfos.next();
             OdmaQName propertyName = propInfo.getQName();
             OdmaType dataType = OdmaType.fromNumericId(propInfo.getDataType());
             boolean multiValue = propInfo.isMultiValue();

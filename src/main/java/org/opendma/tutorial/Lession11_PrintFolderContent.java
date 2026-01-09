@@ -1,7 +1,5 @@
 package org.opendma.tutorial;
 
-import java.util.Iterator;
-
 import org.opendma.api.OdmaAssociation;
 import org.opendma.api.OdmaContainable;
 import org.opendma.api.OdmaFolder;
@@ -70,26 +68,15 @@ public class Lession11_PrintFolderContent
             indentStr.append(" ");
         }
         System.out.println(indentStr.toString() + "-" + folder.getTitle());
-        Iterable<OdmaAssociation> associations = folder.getAssociations();
-        if(associations != null)
+        for(OdmaAssociation assoc : folder.getAssociations())
         {
-            Iterator<OdmaAssociation> itAssociations = associations.iterator();
-            while(itAssociations.hasNext())
-            {
-                OdmaAssociation assoc = itAssociations.next();
-                System.out.print(indentStr.toString() + "    =" + assoc.getName());
-                OdmaContainable containee = assoc.getContainable();
-                System.out.println(" --> ID " + containee.getId() + " [" + containee.getOdmaClass().getQName() + "]");
-            }
+            System.out.print(indentStr.toString() + "    =" + assoc.getName());
+            OdmaContainable containee = assoc.getContainable();
+            System.out.println(" --> ID " + containee.getId() + " [" + containee.getOdmaClass().getQName() + "]");
         }
-        Iterable<OdmaFolder> subFolders = folder.getSubFolders();
-        if(subFolders != null)
+        for(OdmaFolder subFolder : folder.getSubFolders())
         {
-            Iterator<OdmaFolder> itSubFolders = subFolders.iterator();
-            while(itSubFolders.hasNext())
-            {
-                iterativePrintFolderContent(itSubFolders.next(),indent+1);
-            }
+            iterativePrintFolderContent(subFolder,indent+1);
         }
     }
 
