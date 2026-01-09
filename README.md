@@ -2,14 +2,14 @@
 
 So you decided to – or have been told to – get familiar with OpenDMA development in Java.
 This tutorial will guide you through your first steps with the OpenDMA API and provide
-enough basic knowledge so you can continue teaching yourself.
+enough basic knowledge so you can continue learning by yourself.
 
 ## Some fundamentals
 
 OpenDMA organizes all information in so called “objects”. Each object consists of a set
 of “properties” that contain the atomic data. A property is uniquely identify by its
 qualified name and can contain data of one predefined type. The special value “null”
-denotes an empty or undefined property. Property values can either be of single valued or
+denotes an empty property. Property values can either be of single valued or
 multi valued cardinality. A single valued property can contain exactly one value (or
 null) while a multi valued property can contain a (potentially empty) set of values. In
 addition to some basic data types like Booleans, Integers or Strings, there is a
@@ -25,16 +25,16 @@ applications.
 
 ## Setting up your environment
 
-All tutorial applications are nicely packed into a maven project and all required
-dependencies are available on Maven central.  
-Simply check out this repository and open it with your favorite maven capable Java IDE
+All tutorial applications are nicely packed into a maven project with all required
+dependencies available on Maven central.  
+Simply check out this repository and open it with your favorite Java IDE
 like Eclipse or IntelliJ. You can run each tutorial app right from within your IDE.
 
 ## Session management
 
 As many ECM systems are designed following a client/server architecture, OpenDMA uses a
 connection based concept. At first, you need to establish an `OdmaSession` to an OpenDMA
-capable system with a user account. These sessions are provided by `OdmaAdaptor`s. An
+capable system. These sessions are provided by `OdmaAdaptor`s. An
 “Adaptor” is a piece of software that makes an ECM system available to OpenDMA and
 performs the mapping of different concepts and data structures to OpenDMA. There are
 Adaptors available for many ECM or DM systems.
@@ -47,7 +47,7 @@ OdmaAdaptorDiscovery adaptorDiscovery = new OdmaAdaptorDiscovery();
 OdmaAdaptor xmlRepoAdaptor = adaptorDiscovery.getAdaptor("xmlrepo");
 ```
 
-Once you have the `OdmaAdaptor`, compile your connection parameters and connect to the
+Once you have the `OdmaAdaptor`, set up your connection parameters to connect to the
 target system:
 
 ```java
@@ -57,8 +57,8 @@ OdmaSession session = xmlRepoAdaptor.connect(props);
 ```
 
 Connection parameters are specific to the adaptor you are using. In the case of the
-xmlrepo, we only need the location of the XML file that contains the descriptions of the
-objects. There are a couple of standardised parameter names available in the
+xmlrepo, we only need the location of the XML file containing the object descriptions.
+There are a couple of standardised parameter names available in the
 `OdmaAdaptor` interface.
 
 Connecting to other ECM systems is straight forward. For example, to connect to Alfresco:
@@ -71,7 +71,7 @@ params.setProperty(OdmaAdaptor.PARAM_USERNAME, "admin");
 params.setProperty(OdmaAdaptor.PARAM_PASSWORD, "admin");
 OdmaSession alfSession = alfAdaptor.connect(params);
 ```
-(this code requires an Alfresco OdmaAdaptor on the classpath)
+(this code requires an Alfresco OpenDMA adaptor on the classpath)
 
 At the end, you always need to `close()` your session to release all occupied resources:
 ```java
@@ -80,7 +80,7 @@ session.close();
 ```
 
 There are scenarios, like dependency injection and IoC containers, where you want to
-separate connection parameters from the code that establishes a session. OpenDMA
+separate connection parameters from the code establishing a session. OpenDMA
 provides the concept of “session providers” to meet this need:
 
 ```java
@@ -130,7 +130,7 @@ OdmaId repoId = new OdmaId("sample-repo");
 OdmaObject repo = session.getRepository(repoId);
 ```
 
-As described at the beginning, all data in a Repository is handled by OpenDMA as
+As described above, all data in a Repository is handled by OpenDMA as
 “objects” – even the repository itself. Every OpenDMA “object”, like our repository,
 implements the basic `OdmaObject` interface. This defines some basic features that are
 available in all objects.
@@ -154,7 +154,7 @@ constant:
 
 ```java
 // access by OdmaQName constant for well known property names
-repo.getProperty(OdmaTypes.PROPERTY_DISPLAYNAME);
+repo.getProperty(OdmaCommonNames.PROPERTY_DISPLAYNAME);
 ```
 
 ## Access to the Value of a Property
@@ -184,8 +184,7 @@ the object. This class is – again – an OpenDMA object:
 
 ```java
 // get the opendma:Class of the repository
-OdmaObject cls = repo.getProperty(OdmaTypes.PROPERTY_CLASS)
-                     .getReference();
+OdmaObject cls = repo.getProperty(OdmaTypes.PROPERTY_CLASS).getReference();
 ```
 
 This class object contains some general information
@@ -206,13 +205,13 @@ producing the following output:
     ID: xml-repository-class
     Instantiable: false
 ```
-An OpenDMA `Class` refernces a set of `PropertyInfo` objects that define the name and
+An OpenDMA `Class` references a set of `PropertyInfo` objects that define the name and
 data type of every property available on objects of this class:
 
 ```java
 // get set of PropertyInfos
-OdmaObjectEnumeration propInfos = cls.getProperty(OdmaTypes.PROPERTY_PROPERTIES)
-                                     .getReferenceEnumeration();
+Iterable<? extends OdmaObject> propInfos = cls.getProperty(OdmaTypes.PROPERTY_PROPERTIES)
+                                              .getReferenceIterable();
 ```
 
 This `opendma:Properties` property is a multi valued Reference property. Its value is
@@ -221,16 +220,15 @@ accessed by iterating over the set.
 
 ```java
 // print out all PropertyInfos
-Iterator<? extends OdmaObject> itPropInfos = propInfos.iterator();
-while(itPropInfos.hasNext()) {
-    OdmaObject propInfo = itPropInfos.next();
+for(OdmaObject propInfo : propInfos)
+{
     System.out.println(propInfo.getProperty(OdmaTypes.PROPERTY_NAME).getString());
 }
 ```
 
 A `Class` in OpenDMA can “extend” another class that is then called the “Super Class” of
 that class. The extending class “inherits” all properties defined for the super class. It
-can declare additional properties if the name is different from the inherited properties.
+can declare additional properties as long as the name is unique.
 You have access to the super class with
 
 ```java
@@ -258,7 +256,7 @@ repository.
 
 For every system defined OpenDMA class, the Java API defines an interface with additional
 shortcut getter and setter methods for all properties. Using these shortcuts creates a
-much cleaner and morre convenient code. When getting a repository from a session, it is
+much cleaner and more convenient code. When getting a repository from a session, it is
 returned as `OdmaRepository` object. It provides getter methods for all properties
 defined for a `Repository` in OpenDMA right away:
 
@@ -301,7 +299,7 @@ properties of an object. All we need to do is getting the set of properties from
 class of that object. Next, we iterate over this list and get every defined property from
 the object. The value is then printed out according to the data type of the property. For
 this first simple attempt, we just use the Java built-in String conversion `.toString()`
-to print out all data types and do not care about the cardinality:
+to print out all data types:
 
 ```java
 public void printObjectProperties(OdmaObject obj) throws Exception
@@ -362,8 +360,9 @@ The details of this are kept for your self study and can be found in
 ## Predefined and adaptor specific properties
 
 Let’s take a closer look at the properties of our sample repository. When running the
-advanced property dump program `Lession7_PrintObjectProperties`, it produces the
-following output:
+advanced property dump program
+[Lession07_PrintObjectProperties](https://github.com/OpenDMA/opendma-java-tutorial/blob/main/src/main/java/org/opendma/tutorial/Lession07_PrintObjectProperties.java),
+it produces the following output:
 
 ```
 Object sample-repo of class tutorial:SampleRepositoryClass
@@ -516,7 +515,7 @@ protected void iterativePrintClassAndSubclasses(OdmaClass cls, int indent)
 ```
 
 You can find the program printing out the class tree of our tutorial repository as
-[Lession9_PrintClassTree](https://github.com/OpenDMA/opendma-java-tutorial/blob/main/src/main/java/org/opendma/tutorial/Lession9_PrintClassTree.java)
+[Lession09_PrintClassTree](https://github.com/OpenDMA/opendma-java-tutorial/blob/main/src/main/java/org/opendma/tutorial/Lession09_PrintClassTree.java)
 
 This program will produce the following output:
 
@@ -543,15 +542,17 @@ the `tutorial` namespace. We will work with these classes in the following lesso
 ## Document and Content Management
 
 Now that you are familiar with the object oriented approach of OpenDMA,  we can start
-with the actual document management OpenDMA is made for. All this functionality makes use
+with the actual document management OpenDMA is made for.
+
+All this functionality makes use
 of the underlying object oriented architecture. There are again some basic classes for
 typical document management tasks that are extended by the Adaptor to reflect all
-functionality provided by a concrete DMS. But since the DMS world is very heterogeneous,
+functionality provided by a concrete DMS. Since the DMS world is very heterogeneous,
 it is just not possible to represent all these classes in one single rooted tree. Some
-DMS vendors make a strict disjunction between files and folders and others allow items in
+DMS vendors make a strict disjunction between files and folders while others allow items in
 a repository to be a file and a folder at the same time. To cope with this, OpenDMA uses
 the concept of “Aspects”. An Aspect in OpenDMA is similar to an interface in Java. It
-declares a set of properties that are added to a class that includes this aspect. In
+declares a set of properties that are added to a class that include this aspect. In
 OpenDMA, we have aspects for all basic document management items like Folders, Documents
 and so forth.
 
@@ -603,10 +604,11 @@ from the local file system. In particular, they guarantee the following conditio
 - There is exactly one designated root folder
 - The parent of all folders is not `null`, except for the root folder
 - The graph of all folders is loop-free under the parent relationship
+
 This allows to perform the above operations without running into dead loops. For some DMS,
 there is the need for less restrictive folders. These are realized by the `Container`
 aspect in OpenDMA. A `Container` is just an object in a repository that can “contain”
-other objects. There are no constraints set about the layout of the graph, formed by
+other objects. There are no constraints about the layout of the graph formed by
 containers. Especially not the loop freeness. The only constraint for Containers is that
 the contained object have to incorporate the `Containable` aspect.
 
@@ -693,7 +695,7 @@ Object sample-document-a1 of class tutorial:SampleDocument
     opendma:Class (REFERENCE) [single] : sample-document-class of class opendma:Class
     opendma:Id (ID) [single] : sample-document-a1
     opendma:Guid (GUID) [single] : sample-repo:sample-document-a1
-    opendma:Repository (REFERENCE) [single] : sample-repo of class tutorial:SampleRepositoryClass
+    opendma:Repository (REFERENCE) [single] : sample-repo of class tutorial:SampleRepositoryClass
     opendma:Title (STRING) [single] : Some Word file
     opendma:Version (STRING) [single] : 2.1
     opendma:VersionCollection (REFERENCE) [single] : <null>
@@ -702,7 +704,7 @@ Object sample-document-a1 of class tutorial:SampleDocument
     opendma:ContentElements (REFERENCE) [multi] : 
         sample-document-a1-dacoel of class tutorial:SampleDataContentElement
     opendma:CombinedContentType (STRING) [single] : application/msword
-    opendma:PrimaryContentElement (REFERENCE) [single] : sample-document-a1-dacoel of class tutorial:SampleDataContentElement
+    opendma:PrimaryContentElement (REFERENCE) [single] : sample-document-a1-dacoel of class...
     opendma:CreatedAt (DATETIME) [single] : Fri Jan 01 00:00:00 CET 2010
     opendma:CreatedBy (STRING) [single] : SYSTEM
     opendma:LastModifiedAt (DATETIME) [single] : Fri Jan 01 00:00:00 CET 2010
@@ -738,7 +740,9 @@ public void printContentElements(OdmaDocument doc)
 	System.out.println("Content Elements of Document \"" + doc.getTitle() + "\":");
 	for(OdmaContentElement contElem : doc.getContentElements())
 	{
-		System.out.println("  Pos " + contElem.getPosition() + " of type " + contElem.getContentType() + " as " + contElem.getOdmaClass().getQName() );
+		System.out.println("  Pos " + contElem.getPosition() + 
+		                   " of type " + contElem.getContentType() + 
+						   " as " + contElem.getOdmaClass().getQName() );
 	}
 }
 ```
@@ -818,8 +822,7 @@ The following code is used in the above program to print out the hex-dump excerp
 the binary content:
 
 ```java
-OdmaContent dataContent =
-    ((OdmaDataContentElement)contElem).getContent();
+OdmaContent dataContent = ((OdmaDataContentElement)contElem).getContent();
 if(dataContent != null)
 {
     System.out.print("    Conent:");
