@@ -1,5 +1,6 @@
 package org.opendma.tutorial;
 
+import org.opendma.api.OdmaAssociation;
 import org.opendma.api.OdmaContainable;
 import org.opendma.api.OdmaFolder;
 import org.opendma.api.OdmaId;
@@ -8,12 +9,12 @@ import org.opendma.api.OdmaSession;
 
 import com.xaldon.opendma.xmlrepo.XmlRepositorySessionProvider;
 
-public class Lession11_PrintFolderContent
+public class Lession16_PrintFolderAssociations
 {
 
     public static void main(String[] args)
     {
-        Lession11_PrintFolderContent lession = new Lession11_PrintFolderContent();
+        Lession16_PrintFolderAssociations lession = new Lession16_PrintFolderAssociations();
         try
         {
             lession.run();
@@ -67,9 +68,11 @@ public class Lession11_PrintFolderContent
             indentStr.append(" ");
         }
         System.out.println(indentStr.toString() + "-" + folder.getTitle());
-        for(OdmaContainable containable : folder.getContainees())
+        for(OdmaAssociation assoc : folder.getAssociations())
         {
-            System.out.println(indentStr.toString() + "    = ID " + containable.getId() + " [" + containable.getOdmaClass().getQName() + "]");
+            System.out.print(indentStr.toString() + "    =" + assoc.getName());
+            OdmaContainable containee = assoc.getContainable();
+            System.out.println(" --> ID " + containee.getId() + " [" + containee.getOdmaClass().getQName() + "]");
         }
         for(OdmaFolder subFolder : folder.getSubFolders())
         {

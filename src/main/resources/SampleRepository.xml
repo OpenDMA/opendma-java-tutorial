@@ -103,7 +103,7 @@
         <Property qualifier="opendma" name="Namespace" type="string"><Value>tutorial</Value></Property>
         <Property qualifier="opendma" name="Parent" type="reference"><Value>opendmaClassObject</Value></Property>
         <Property qualifier="opendma" name="DisplayName" type="string"><Value>Document</Value></Property>
-        <Property qualifier="opendma" name="IncludedAspects" type="reference" multiValue="true"><Value>opendmaClassDocument</Value><Value>opendmaClassContainable</Value></Property>
+        <Property qualifier="opendma" name="IncludedAspects" type="reference" multiValue="true"><Value>opendmaClassDocument</Value><Value>opendmaClassContainable</Value><Value>opendmaClassAuditStamped</Value></Property>
         <Property qualifier="opendma" name="DeclaredProperties" type="reference" multiValue="true"></Property>
         <Property qualifier="opendma" name="Aspect" type="boolean"><Value>false</Value></Property>
         <Property qualifier="opendma" name="Instantiable" type="boolean"><Value>true</Value></Property>

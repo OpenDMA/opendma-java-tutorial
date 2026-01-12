@@ -98,7 +98,7 @@ public class Lession06_SimplePrintObjectProperties
                     if(dataType == OdmaType.REFERENCE)
                     {
                         OdmaObject o = (OdmaObject) value;
-                        System.out.println(o.getId().toString() + " of class " + o.getOdmaClass().getQName());
+                        System.out.println(o.getId() + " of class " + o.getOdmaClass().getQName());
                     }
                     else
                     {
