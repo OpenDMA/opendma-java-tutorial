@@ -199,7 +199,7 @@ This class object contains some general information
 System.out.println("Class of the repository object:");
 System.out.println("Name: " + cls.getProperty(OdmaTypes.PROPERTY_NAME).getString() );
 System.out.println("ID: " + cls.getProperty(OdmaTypes.PROPERTY_ID).getId() );
-System.out.println("    Sys: " + cls.getProperty(OdmaCommonNames.PROPERTY_SYSTEM).getBoolean().toString() );
+System.out.println("System: " + cls.getProperty(OdmaCommonNames.PROPERTY_SYSTEM).getBoolean() );
 ```
 
 producing the following output:
