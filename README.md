@@ -208,7 +208,7 @@ producing the following output:
     Class of the repository object:
     Name: XmlRepository
     ID: xml-repository-class
-    Sys: true
+    System: true
 ```
 An OpenDMA `Class` references a set of `PropertyInfo` objects that define the name and
 data type of every property available on objects of this class:
@@ -369,26 +369,26 @@ it produces the following output:
 
 ```
 Object sample-repo-object of class tutorial:SampleRepositoryClass
-    opendma:Class (REFERENCE) [single] : sample-repo-class of class opendma:Class
-    opendma:Aspects (REFERENCE) [multi] : 
-    opendma:Id (ID) [single] : sample-repo-object
-    opendma:Guid (GUID) [single] : `sample-repo-object` in `sample-repo`
-    opendma:Repository (REFERENCE) [single] : sample-repo-object of class tutorial:SampleRepositoryClass
-    opendma:Name (STRING) [single] : SampleRepository
-    opendma:DisplayName (STRING) [single] : Sample Repository for Tutorials
-    opendma:RootClass (REFERENCE) [single] : opendmaClassObject of class opendma:Class
-    opendma:RootAspects (REFERENCE) [multi] : 
-        opendmaClassAuditStamped of class opendma:Class
-        opendmaClassDocument of class opendma:Class
-        opendmaClassContentElement of class opendma:Class
-        opendmaClassVersionCollection of class opendma:Class
-        opendmaClassContainer of class opendma:Class
-        opendmaClassContainable of class opendma:Class
-        opendmaClassAssociation of class opendma:Class
-    opendma:RootFolder (REFERENCE) [single] : sample-folder-root of class tutorial:SampleFolder
-    tutorial:RepositoryName (STRING) [single] : SampleRepository
-    tutorial:SampleString (STRING) [single] : Some sample string value
-    tutorial:SampleInteger (INTEGER) [single] : 123
+  opendma:Class (REFERENCE) [single] : sample-repo-class of class opendma:Class
+  opendma:Aspects (REFERENCE) [multi] : 
+  opendma:Id (ID) [single] : sample-repo-object
+  opendma:Guid (GUID) [single] : `sample-repo-object` in `sample-repo`
+  opendma:Repository (REFERENCE) [single] : sample-repo-object of class tutorial:SampleRepositoryClass
+  opendma:Name (STRING) [single] : SampleRepository
+  opendma:DisplayName (STRING) [single] : Sample Repository for Tutorials
+  opendma:RootClass (REFERENCE) [single] : opendmaClassObject of class opendma:Class
+  opendma:RootAspects (REFERENCE) [multi] : 
+    opendmaClassAuditStamped of class opendma:Class
+    opendmaClassDocument of class opendma:Class
+    opendmaClassContentElement of class opendma:Class
+    opendmaClassVersionCollection of class opendma:Class
+    opendmaClassContainer of class opendma:Class
+    opendmaClassContainable of class opendma:Class
+    opendmaClassAssociation of class opendma:Class
+  opendma:RootFolder (REFERENCE) [single] : sample-folder-root of class tutorial:SampleFolder
+  tutorial:RepositoryName (STRING) [single] : SampleRepository
+  tutorial:SampleString (STRING) [single] : Some sample string value
+  tutorial:SampleInteger (INTEGER) [single] : 123
 
 Inheritance hierarchy:
 tutorial:SampleRepositoryClass
