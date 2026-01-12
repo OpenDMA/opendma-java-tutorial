@@ -1,6 +1,6 @@
 # OpenDMA Java Tutorial
 
-> This tutorial is copyright by Stefan Kopf and licensed under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/).
+> This tutorial is copyright by xaldon Technologies GmbH / Stefan Kopf and licensed under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/).
 
 So you decided to – or have been told to – get familiar with OpenDMA development in Java.
 This tutorial will guide you through your first steps with the OpenDMA API and provide
