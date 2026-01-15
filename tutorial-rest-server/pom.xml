@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>org.opendma.tutorial</groupId>
+    <artifactId>opendma-tutorial-rest-server</artifactId>
+    <version>0.8-SNAPSHOT</version>
+    <name>OpenDMA REST Server serving the tutorial XML Repository</name>
+    <description>Combines the Reference REST Server with the xmlrepo OpenDMA Adaptor and the tutorial repository</description>
+    <url>https://opendma.org</url>
+    <inceptionYear>2025</inceptionYear>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>1.5.22.RELEASE</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+
+    <properties>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <docker.platforms>linux/amd64,linux/arm64/v8,linux/ppc64le</docker.platforms>
+        <maven.build.timestamp.format>yyyy-MM-dd'T'HH:mm:ss'Z'</maven.build.timestamp.format>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.opendma</groupId>
+            <artifactId>opendma-rest-server</artifactId>
+            <version>0.8-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>org.opendma</groupId>
+            <artifactId>opendma-xmlrepo</artifactId>
+            <version>0.8-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
+
+    <licenses>
+        <license>
+            <name>GNU Affero General Public License v3.0 only</name>
+            <url>https://www.gnu.org/licenses/agpl-3.0.txt</url>
+            <distribution>repo</distribution>
+            <comments>SPDX-License-Identifier: AGPL-3.0-only</comments>
+        </license>
+    </licenses>
+
+    <developers>
+        <developer>
+            <name>Stefan Kopf</name>
+            <organization>xaldon Technologies GmbH</organization>
+            <organizationUrl>https://www.xaldon.com</organizationUrl>
+        </developer>
+        <developer>
+            <name>OpenDMA Contributors</name>
+            <organization>OpenDMA</organization>
+            <organizationUrl>https://www.opendma.org</organizationUrl>
+        </developer>
+    </developers>
+
+    <build>
+        <resources>
+            <!-- default Maven resource directory -->
+            <resource>
+                <directory>src/main/resources</directory>
+            </resource>
+            <!-- use the SampleRepository.xml file from the java tutorial to avoid duplication -->
+            <resource>
+                <directory>../src/main/resources</directory>
+                <includes>
+                    <include>SampleRepository.xml</include>
+                </includes>
+            </resource>
+        </resources>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.11.0</version>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.22.2</version>
+            </plugin>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <mainClass>org.opendma.rest.server.OpendmaRestServer</mainClass>
+                    <executable>false</executable>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-antrun-plugin</artifactId>
+                <version>3.1.0</version>
+                <executions>
+                    <execution>
+                        <id>copy-external-file-into-docker-context</id>
+                        <phase>prepare-package</phase>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                        <configuration>
+                            <target>
+                                <mkdir dir="${project.build.directory}/docker-extra"/>
+                                <copy file="${project.basedir}/../sample-content.bin"
+                                      tofile="${project.build.directory}/docker-extra/sample-content.bin"
+                                      overwrite="true"/>
+                            </target>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-deploy-plugin</artifactId>
+                <version>2.8.2</version>
+                <configuration>
+                    <skip>true</skip>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>io.github.git-commit-id</groupId>
+                <artifactId>git-commit-id-maven-plugin</artifactId>
+                <version>9.0.2</version>
+                <executions>
+                    <execution>
+                        <id>get-the-git-infos</id>
+                        <goals>
+                            <goal>revision</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <failOnNoGitDirectory>false</failOnNoGitDirectory>
+                    <generateGitPropertiesFile>false</generateGitPropertiesFile>
+                    <abbrevLength>7</abbrevLength>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>io.fabric8</groupId>
+                <artifactId>docker-maven-plugin</artifactId>
+                <version>0.48.0</version>
+                <configuration>
+                    <images>
+                        <image>
+                            <name>opendma/deleteme-test</name>
+                            <build>
+                                <contextDir>${project.basedir}</contextDir>
+                                <dockerFile>${project.basedir}/Dockerfile</dockerFile>
+                                <args>
+                                    <IMAGE_VERSION>${project.version}</IMAGE_VERSION>
+                                    <VCS_REF>${git.commit.id.abbrev}</VCS_REF>
+                                    <BUILD_DATE>${maven.build.timestamp}</BUILD_DATE>
+                                </args>
+                                <buildx>
+                                    <!-- <builderName>mavenbuilder</builderName> -->
+                                    <platforms>
+                                        <platform>${docker.platforms}</platform>
+                                    </platforms>
+                                </buildx>
+                                <tags>
+                                    <tag>deleteme-${project.version}</tag>
+                                    <tag>deleteme-latest</tag>
+                                </tags>
+                            </build>
+                        </image>
+                    </images>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>build-image</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>build</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>push-ghcr</id>
+                        <phase>deploy</phase>
+                        <goals>
+                            <goal>push</goal>
+                        </goals>
+                        <configuration>
+                            <registry>ghcr.io</registry>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>push-dockerhub</id>
+                        <phase>deploy</phase>
+                        <goals>
+                            <goal>push</goal>
+                        </goals>
+                        <configuration>
+                            <registry>docker.io</registry>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
