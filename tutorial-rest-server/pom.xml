@@ -159,7 +159,6 @@
                                     <BUILD_DATE>${maven.build.timestamp}</BUILD_DATE>
                                 </args>
                                 <buildx>
-                                    <!-- <builderName>mavenbuilder</builderName> -->
                                     <platforms>
                                         <platform>${docker.platforms}</platform>
                                     </platforms>
