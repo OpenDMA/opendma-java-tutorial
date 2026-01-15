@@ -149,7 +149,7 @@
                 <configuration>
                     <images>
                         <image>
-                            <name>opendma/deleteme-test</name>
+                            <name>opendma/tutorial-xmlrepo</name>
                             <build>
                                 <contextDir>${project.basedir}</contextDir>
                                 <dockerFile>${project.basedir}/Dockerfile</dockerFile>
@@ -164,8 +164,8 @@
                                     </platforms>
                                 </buildx>
                                 <tags>
-                                    <tag>deleteme-${project.version}</tag>
-                                    <tag>deleteme-latest</tag>
+                                    <tag>${project.version}</tag>
+                                    <tag>latest</tag>
                                 </tags>
                             </build>
                         </image>
