@@ -29,16 +29,22 @@ docker run -d --name opendma-tutorial-xmlrepo -p 8080:8080 ghcr.io/opendma/tutor
 ## Explore service
 
 Service root listing all available repositories:  
-http://localhost:8095/opendma/
+http://localhost:8080/opendma/
 
 Description object of repository `sample-repo`:  
-http://localhost:8095/opendma/obj/sample-repo
+http://localhost:8080/opendma/obj/sample-repo
 
-Root of the class hierarchy (i.e. `opendma:Object`):
-http://localhost:8095/opendma/obj/sample-repo/opendmaClassObject
+Root of the class hierarchy (i.e. `opendma:Object`):  
+http://localhost:8080/opendma/obj/sample-repo/opendmaClassObject
 
 Root folder of repository:  
-http://localhost:8095/opendma/obj/sample-repo/sample-folder-root
+http://localhost:8080/opendma/obj/sample-repo/sample-folder-root
+
+Folder A in the repository:  
+http://localhost:8080/opendma/obj/sample-repo/sample-folder-a
+
+Document A1 in the repository:  
+http://localhost:8080/opendma/obj/sample-repo/sample-document-a1
 
 ## Build
 
