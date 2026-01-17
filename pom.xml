@@ -5,7 +5,7 @@
 
     <groupId>org.opendma</groupId>
     <artifactId>opendma-tutorial</artifactId>
-    <version>0.8-SNAPSHOT</version>
+    <version>0.8</version>
     <name>OpenDMA Tutorial</name>
     <description>Collection of  small java samples showing different aspects of OpenDMA</description>
     <url>https://opendma.org</url>
@@ -21,7 +21,7 @@
         <connection>scm:git:git://github.com/OpenDMA/opendma-java-tutorial.git</connection>
         <developerConnection>scm:git:ssh://git@github.com/OpenDMA/opendma-java-tutorial.git</developerConnection>
         <url>https://github.com/OpenDMA/opendma-java-tutorial</url>
-        <tag>HEAD</tag>
+        <tag>0.8</tag>
     </scm>
 
     <issueManagement>
