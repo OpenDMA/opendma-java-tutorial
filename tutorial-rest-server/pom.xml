@@ -5,7 +5,7 @@
 
     <groupId>org.opendma.tutorial</groupId>
     <artifactId>opendma-tutorial-rest-server</artifactId>
-    <version>0.8-SNAPSHOT</version>
+    <version>0.8</version>
     <name>OpenDMA REST Server serving the tutorial XML Repository</name>
     <description>Combines the Reference REST Server with the xmlrepo OpenDMA Adaptor and the tutorial repository</description>
     <url>https://opendma.org</url>
