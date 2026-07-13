@@ -302,8 +302,8 @@
         <Property qualifier="opendma" name="Aspects" type="reference" multiValue="true"></Property>
         <Property qualifier="opendma" name="Title" type="string"><Value>ROOT</Value></Property>
         <Property qualifier="opendma" name="SubFolders" type="reference" multiValue="true"><Value>sample-folder-a</Value><Value>sample-folder-b</Value><Value>sample-folder-c</Value></Property>
-        <Property qualifier="opendma" name="Containees" type="reference" multiValue="true"></Property>
-        <Property qualifier="opendma" name="Associations" type="reference" multiValue="true"></Property>
+        <Property qualifier="opendma" name="Containees" type="reference" multiValue="true"><Value>hello-world-document</Value><Value>opendma-spec-document</Value></Property>
+        <Property qualifier="opendma" name="Associations" type="reference" multiValue="true"><Value>hello-world-association</Value><Value>opendma-spec-association</Value></Property>
         <Property qualifier="opendma" name="CreatedAt" type="datetime"><Value>2010-01-01 00:00:00</Value></Property>
         <Property qualifier="opendma" name="CreatedBy" type="string"><Value>SYSTEM</Value></Property>
         <Property qualifier="opendma" name="LastModifiedAt" type="datetime"><Value>2010-01-01 00:00:00</Value></Property>
@@ -341,8 +341,8 @@
         <Property qualifier="opendma" name="Aspects" type="reference" multiValue="true"></Property>
         <Property qualifier="opendma" name="Title" type="string"><Value>TestC</Value></Property>
         <Property qualifier="opendma" name="SubFolders" type="reference" multiValue="true"><Value>sample-folder-c1</Value><Value>sample-folder-c2</Value></Property>
-        <Property qualifier="opendma" name="Containees" type="reference" multiValue="true"></Property>
-        <Property qualifier="opendma" name="Associations" type="reference" multiValue="true"></Property>
+        <Property qualifier="opendma" name="Containees" type="reference" multiValue="true"><Value>sample-no-content-document</Value></Property>
+        <Property qualifier="opendma" name="Associations" type="reference" multiValue="true"><Value>sample-no-content-association</Value></Property>
         <Property qualifier="opendma" name="CreatedAt" type="datetime"><Value>2010-01-01 00:00:00</Value></Property>
         <Property qualifier="opendma" name="CreatedBy" type="string"><Value>SYSTEM</Value></Property>
         <Property qualifier="opendma" name="LastModifiedAt" type="datetime"><Value>2010-01-01 00:00:00</Value></Property>
@@ -426,6 +426,114 @@
         <Property qualifier="opendma" name="LastModifiedAt" type="datetime"><Value>2010-01-01 00:00:00</Value></Property>
         <Property qualifier="opendma" name="LastModifiedBy" type="string"><Value>SYSTEM</Value></Property>
     </OdmaObject>
+    
+    <!-- hello-world Document -->
+
+    <OdmaObject classNamespace="tutorial" className="SampleDocument">
+        <Property qualifier="opendma" name="Id" type="id"><Value>hello-world-document</Value></Property>
+        <Property qualifier="opendma" name="Aspects" type="reference" multiValue="true"></Property>
+        <Property qualifier="opendma" name="Title" type="string"><Value>Hello, World!</Value></Property>
+        <Property qualifier="opendma" name="Version" type="string"><Value>1.0</Value></Property>
+        <Property qualifier="opendma" name="VersionCollection" type="reference"><Value>hello-world-versioncollection</Value></Property>
+        <Property qualifier="opendma" name="ContentElements" type="reference" multiValue="true"><Value>hello-world-dacoel</Value></Property>
+        <Property qualifier="opendma" name="CombinedContentType" type="string"><Value>text/plain</Value></Property>
+        <Property qualifier="opendma" name="PrimaryContentElement" type="reference"><Value>hello-world-dacoel</Value></Property>
+        <Property qualifier="opendma" name="CreatedAt" type="datetime"><Value>2010-01-01 00:00:00</Value></Property>
+        <Property qualifier="opendma" name="CreatedBy" type="string"><Value>SYSTEM</Value></Property>
+        <Property qualifier="opendma" name="LastModifiedAt" type="datetime"><Value>2010-01-01 00:00:00</Value></Property>
+        <Property qualifier="opendma" name="LastModifiedBy" type="string"><Value>SYSTEM</Value></Property>
+        <Property qualifier="opendma" name="CheckedOut" type="boolean"><Value>false</Value></Property>
+        <Property qualifier="opendma" name="CheckedOutAt" type="datetime"></Property>
+        <Property qualifier="opendma" name="CheckedOutBy" type="string"></Property>
+        <Property qualifier="opendma" name="ContainedIn" type="reference" multiValue="true"><Value>sample-folder-root</Value></Property>
+        <Property qualifier="opendma" name="ContainedInAssociations" type="reference" multiValue="true"><Value>hello-world-association</Value></Property>
+    </OdmaObject>
+
+    <OdmaObject classNamespace="tutorial" className="SampleDataContentElement">
+        <Property qualifier="opendma" name="Id" type="id"><Value>hello-world-dacoel</Value></Property>
+        <Property qualifier="opendma" name="Aspects" type="reference" multiValue="true"></Property>
+        <Property qualifier="opendma" name="ContentType" type="string"><Value>text/plain</Value></Property>
+        <Property qualifier="opendma" name="Position" type="integer"><Value>0</Value></Property>
+        <Property qualifier="opendma" name="Content" type="content"><Value>sample-content/sample-content.txt</Value></Property>
+        <Property qualifier="opendma" name="Size" type="long"><Value>55</Value></Property>
+        <Property qualifier="opendma" name="FileName" type="string"><Value>HelloWorld.txt</Value></Property>
+    </OdmaObject>
+
+    <OdmaObject classNamespace="tutorial" className="SampleAssociation">
+        <Property qualifier="opendma" name="Id" type="id"><Value>hello-world-association</Value></Property>
+        <Property qualifier="opendma" name="Aspects" type="reference" multiValue="true"></Property>
+        <Property qualifier="opendma" name="Name" type="string"><Value>HelloWorld.txt</Value></Property>
+        <Property qualifier="opendma" name="Container" type="reference"><Value>sample-folder-root</Value></Property>
+        <Property qualifier="opendma" name="Containable" type="reference"><Value>hello-world-document</Value></Property>
+        <Property qualifier="opendma" name="CreatedAt" type="datetime"><Value>2010-01-01 00:00:00</Value></Property>
+        <Property qualifier="opendma" name="CreatedBy" type="string"><Value>SYSTEM</Value></Property>
+        <Property qualifier="opendma" name="LastModifiedAt" type="datetime"><Value>2010-01-01 00:00:00</Value></Property>
+        <Property qualifier="opendma" name="LastModifiedBy" type="string"><Value>SYSTEM</Value></Property>
+    </OdmaObject>
+
+    <OdmaObject classNamespace="tutorial" className="SampleVersionCollection">
+        <Property qualifier="opendma" name="Id" type="id"><Value>hello-world-versioncollection</Value></Property>
+        <Property qualifier="opendma" name="Aspects" type="reference" multiValue="true"></Property>
+        <Property qualifier="opendma" name="Versions" type="reference" multiValue="true"><Value>hello-world-document</Value></Property>
+        <Property qualifier="opendma" name="Latest" type="reference"><Value>hello-world-document</Value></Property>
+        <Property qualifier="opendma" name="Released" type="reference"><Value>hello-world-document</Value></Property>
+        <Property qualifier="opendma" name="InProgress" type="reference"></Property>
+    </OdmaObject>
+    
+    <!-- opendma-spec Document -->
+
+    <OdmaObject classNamespace="tutorial" className="SampleDocument">
+        <Property qualifier="opendma" name="Id" type="id"><Value>opendma-spec-document</Value></Property>
+        <Property qualifier="opendma" name="Aspects" type="reference" multiValue="true"></Property>
+        <Property qualifier="opendma" name="Title" type="string"><Value>OpenDMA Specification 0.8</Value></Property>
+        <Property qualifier="opendma" name="Version" type="string"><Value>1.0</Value></Property>
+        <Property qualifier="opendma" name="VersionCollection" type="reference"><Value>opendma-spec-versioncollection</Value></Property>
+        <Property qualifier="opendma" name="ContentElements" type="reference" multiValue="true"><Value>opendma-spec-dacoel</Value></Property>
+        <Property qualifier="opendma" name="CombinedContentType" type="string"><Value>application/pdf</Value></Property>
+        <Property qualifier="opendma" name="PrimaryContentElement" type="reference"><Value>opendma-spec-dacoel</Value></Property>
+        <Property qualifier="opendma" name="CreatedAt" type="datetime"><Value>2010-01-01 00:00:00</Value></Property>
+        <Property qualifier="opendma" name="CreatedBy" type="string"><Value>SYSTEM</Value></Property>
+        <Property qualifier="opendma" name="LastModifiedAt" type="datetime"><Value>2010-01-01 00:00:00</Value></Property>
+        <Property qualifier="opendma" name="LastModifiedBy" type="string"><Value>SYSTEM</Value></Property>
+        <Property qualifier="opendma" name="CheckedOut" type="boolean"><Value>false</Value></Property>
+        <Property qualifier="opendma" name="CheckedOutAt" type="datetime"></Property>
+        <Property qualifier="opendma" name="CheckedOutBy" type="string"></Property>
+        <Property qualifier="opendma" name="ContainedIn" type="reference" multiValue="true"><Value>sample-folder-root</Value></Property>
+        <Property qualifier="opendma" name="ContainedInAssociations" type="reference" multiValue="true"><Value>opendma-spec-association</Value></Property>
+    </OdmaObject>
+
+    <OdmaObject classNamespace="tutorial" className="SampleDataContentElement">
+        <Property qualifier="opendma" name="Id" type="id"><Value>opendma-spec-dacoel</Value></Property>
+        <Property qualifier="opendma" name="Aspects" type="reference" multiValue="true"></Property>
+        <Property qualifier="opendma" name="ContentType" type="string"><Value>application/pdf</Value></Property>
+        <Property qualifier="opendma" name="Position" type="integer"><Value>0</Value></Property>
+        <Property qualifier="opendma" name="Content" type="content"><Value>sample-content/opendma-spec-08.pdf</Value></Property>
+        <Property qualifier="opendma" name="Size" type="long"><Value>567470</Value></Property>
+        <Property qualifier="opendma" name="FileName" type="string"><Value>opendma-spec-08.pdf</Value></Property>
+    </OdmaObject>
+
+    <OdmaObject classNamespace="tutorial" className="SampleAssociation">
+        <Property qualifier="opendma" name="Id" type="id"><Value>opendma-spec-association</Value></Property>
+        <Property qualifier="opendma" name="Aspects" type="reference" multiValue="true"></Property>
+        <Property qualifier="opendma" name="Name" type="string"><Value>opendma-spec-08.pdf</Value></Property>
+        <Property qualifier="opendma" name="Container" type="reference"><Value>sample-folder-root</Value></Property>
+        <Property qualifier="opendma" name="Containable" type="reference"><Value>opendma-spec-document</Value></Property>
+        <Property qualifier="opendma" name="CreatedAt" type="datetime"><Value>2010-01-01 00:00:00</Value></Property>
+        <Property qualifier="opendma" name="CreatedBy" type="string"><Value>SYSTEM</Value></Property>
+        <Property qualifier="opendma" name="LastModifiedAt" type="datetime"><Value>2010-01-01 00:00:00</Value></Property>
+        <Property qualifier="opendma" name="LastModifiedBy" type="string"><Value>SYSTEM</Value></Property>
+    </OdmaObject>
+
+    <OdmaObject classNamespace="tutorial" className="SampleVersionCollection">
+        <Property qualifier="opendma" name="Id" type="id"><Value>opendma-spec-versioncollection</Value></Property>
+        <Property qualifier="opendma" name="Aspects" type="reference" multiValue="true"></Property>
+        <Property qualifier="opendma" name="Versions" type="reference" multiValue="true"><Value>opendma-spec-document</Value></Property>
+        <Property qualifier="opendma" name="Latest" type="reference"><Value>opendma-spec-document</Value></Property>
+        <Property qualifier="opendma" name="Released" type="reference"><Value>opendma-spec-document</Value></Property>
+        <Property qualifier="opendma" name="InProgress" type="reference"></Property>
+    </OdmaObject>
+    
+    <!-- Sample Document A1 -->
 
     <OdmaObject classNamespace="tutorial" className="SampleDocument">
         <Property qualifier="opendma" name="Id" type="id"><Value>sample-document-a1</Value></Property>
@@ -577,13 +685,15 @@
         <Property qualifier="opendma" name="Released" type="reference"><Value>sample-document-a1-v20</Value></Property>
         <Property qualifier="opendma" name="InProgress" type="reference"></Property>
     </OdmaObject>
+    
+    <!-- Sample Document A2 -->
 
     <OdmaObject classNamespace="tutorial" className="SampleDocument">
         <Property qualifier="opendma" name="Id" type="id"><Value>sample-document-a2</Value></Property>
         <Property qualifier="opendma" name="Aspects" type="reference" multiValue="true"></Property>
         <Property qualifier="opendma" name="Title" type="string"><Value>Some Movie</Value></Property>
         <Property qualifier="opendma" name="Version" type="string"><Value>1.0</Value></Property>
-        <Property qualifier="opendma" name="VersionCollection" type="reference"></Property>
+        <Property qualifier="opendma" name="VersionCollection" type="reference"><Value>sample-versioncollection-a2</Value></Property>
         <Property qualifier="opendma" name="ContentElements" type="reference" multiValue="true"><Value>sample-document-a2-dacoel-1</Value><Value>sample-document-a2-dacoel-2</Value><Value>sample-document-a2-recoel-3</Value></Property>
         <Property qualifier="opendma" name="CombinedContentType" type="string"><Value>video/mp4</Value></Property>
         <Property qualifier="opendma" name="PrimaryContentElement" type="reference"><Value>sample-document-a2-dacoel-1</Value></Property>
@@ -603,7 +713,7 @@
         <Property qualifier="opendma" name="Aspects" type="reference" multiValue="true"></Property>
         <Property qualifier="opendma" name="ContentType" type="string"><Value>video/mp4</Value></Property>
         <Property qualifier="opendma" name="Position" type="integer"><Value>0</Value></Property>
-        <Property qualifier="opendma" name="Content" type="content"><Value>sample-content.bin</Value></Property>
+        <Property qualifier="opendma" name="Content" type="content"><Value>sample-content/sample-content.bin</Value></Property>
         <Property qualifier="opendma" name="Size" type="long"><Value>1327</Value></Property>
         <Property qualifier="opendma" name="FileName" type="string"><Value>Scene1.mp4</Value></Property>
     </OdmaObject>
@@ -613,7 +723,7 @@
         <Property qualifier="opendma" name="Aspects" type="reference" multiValue="true"></Property>
         <Property qualifier="opendma" name="ContentType" type="string"><Value>video/mp4</Value></Property>
         <Property qualifier="opendma" name="Position" type="integer"><Value>1</Value></Property>
-        <Property qualifier="opendma" name="Content" type="content"><Value>sample-content.bin</Value></Property>
+        <Property qualifier="opendma" name="Content" type="content"><Value>sample-content/sample-content.bin</Value></Property>
         <Property qualifier="opendma" name="Size" type="long"><Value>1327</Value></Property>
         <Property qualifier="opendma" name="FileName" type="string"><Value>Scene2.mp4</Value></Property>
     </OdmaObject>
@@ -638,6 +748,17 @@
         <Property qualifier="opendma" name="LastModifiedBy" type="string"><Value>SYSTEM</Value></Property>
     </OdmaObject>
 
+    <OdmaObject classNamespace="tutorial" className="SampleVersionCollection">
+        <Property qualifier="opendma" name="Id" type="id"><Value>sample-versioncollection-a2</Value></Property>
+        <Property qualifier="opendma" name="Aspects" type="reference" multiValue="true"></Property>
+        <Property qualifier="opendma" name="Versions" type="reference" multiValue="true"><Value>sample-document-a2</Value></Property>
+        <Property qualifier="opendma" name="Latest" type="reference"><Value>sample-document-a2</Value></Property>
+        <Property qualifier="opendma" name="Released" type="reference"><Value>sample-document-a2</Value></Property>
+        <Property qualifier="opendma" name="InProgress" type="reference"></Property>
+    </OdmaObject>
+    
+    <!-- Contact 1 -->
+
     <OdmaObject classNamespace="tutorial" className="SampleContact">
         <Property qualifier="opendma" name="Id" type="id"><Value>contact-1</Value></Property>
         <Property qualifier="opendma" name="Aspects" type="reference" multiValue="true"></Property>
@@ -659,6 +780,8 @@
         <Property qualifier="opendma" name="LastModifiedAt" type="datetime"><Value>2010-01-01 00:00:00</Value></Property>
         <Property qualifier="opendma" name="LastModifiedBy" type="string"><Value>SYSTEM</Value></Property>
     </OdmaObject>
+    
+    <!-- Event 1 -->
 
     <OdmaObject classNamespace="tutorial" className="SampleEvent">
         <Property qualifier="opendma" name="Id" type="id"><Value>event-1</Value></Property>
@@ -680,13 +803,15 @@
         <Property qualifier="opendma" name="LastModifiedAt" type="datetime"><Value>2010-01-01 00:00:00</Value></Property>
         <Property qualifier="opendma" name="LastModifiedBy" type="string"><Value>SYSTEM</Value></Property>
     </OdmaObject>
+    
+    <!-- Sample Document B1 -->
 
     <OdmaObject classNamespace="tutorial" className="SampleDocument">
         <Property qualifier="opendma" name="Id" type="id"><Value>sample-document-b1</Value></Property>
         <Property qualifier="opendma" name="Aspects" type="reference" multiValue="true"></Property>
         <Property qualifier="opendma" name="Title" type="string"><Value>Another Word file</Value></Property>
         <Property qualifier="opendma" name="Version" type="string"><Value>1.0</Value></Property>
-        <Property qualifier="opendma" name="VersionCollection" type="reference"></Property>
+        <Property qualifier="opendma" name="VersionCollection" type="reference"><Value>sample-versioncollection-b1</Value></Property>
         <Property qualifier="opendma" name="ContentElements" type="reference" multiValue="true"><Value>sample-document-b1-dacoel</Value></Property>
         <Property qualifier="opendma" name="CombinedContentType" type="string"><Value>application/msword</Value></Property>
         <Property qualifier="opendma" name="PrimaryContentElement" type="reference"><Value>sample-document-b1-dacoel</Value></Property>
@@ -723,12 +848,23 @@
         <Property qualifier="opendma" name="LastModifiedBy" type="string"><Value>SYSTEM</Value></Property>
     </OdmaObject>
 
+    <OdmaObject classNamespace="tutorial" className="SampleVersionCollection">
+        <Property qualifier="opendma" name="Id" type="id"><Value>sample-versioncollection-b1</Value></Property>
+        <Property qualifier="opendma" name="Aspects" type="reference" multiValue="true"></Property>
+        <Property qualifier="opendma" name="Versions" type="reference" multiValue="true"><Value>sample-document-b1</Value></Property>
+        <Property qualifier="opendma" name="Latest" type="reference"><Value>sample-document-b1</Value></Property>
+        <Property qualifier="opendma" name="Released" type="reference"><Value>sample-document-b1</Value></Property>
+        <Property qualifier="opendma" name="InProgress" type="reference"></Property>
+    </OdmaObject>
+    
+    <!-- Sample Document B2 -->
+
     <OdmaObject classNamespace="tutorial" className="SampleDocument">
         <Property qualifier="opendma" name="Id" type="id"><Value>sample-document-b2</Value></Property>
         <Property qualifier="opendma" name="Aspects" type="reference" multiValue="true"></Property>
         <Property qualifier="opendma" name="Title" type="string"><Value>Another Movie</Value></Property>
         <Property qualifier="opendma" name="Version" type="string"><Value>1.0</Value></Property>
-        <Property qualifier="opendma" name="VersionCollection" type="reference"></Property>
+        <Property qualifier="opendma" name="VersionCollection" type="reference"><Value>sample-versioncollection-b2</Value></Property>
         <Property qualifier="opendma" name="ContentElements" type="reference" multiValue="true"><Value>sample-document-b2-dacoel</Value></Property>
         <Property qualifier="opendma" name="CombinedContentType" type="string"><Value>video/mp4</Value></Property>
         <Property qualifier="opendma" name="PrimaryContentElement" type="reference"><Value>sample-document-b2-dacoel</Value></Property>
@@ -763,6 +899,58 @@
         <Property qualifier="opendma" name="CreatedBy" type="string"><Value>SYSTEM</Value></Property>
         <Property qualifier="opendma" name="LastModifiedAt" type="datetime"><Value>2010-01-01 00:00:00</Value></Property>
         <Property qualifier="opendma" name="LastModifiedBy" type="string"><Value>SYSTEM</Value></Property>
+    </OdmaObject>
+
+    <OdmaObject classNamespace="tutorial" className="SampleVersionCollection">
+        <Property qualifier="opendma" name="Id" type="id"><Value>sample-versioncollection-b2</Value></Property>
+        <Property qualifier="opendma" name="Aspects" type="reference" multiValue="true"></Property>
+        <Property qualifier="opendma" name="Versions" type="reference" multiValue="true"><Value>sample-document-b2</Value></Property>
+        <Property qualifier="opendma" name="Latest" type="reference"><Value>sample-document-b2</Value></Property>
+        <Property qualifier="opendma" name="Released" type="reference"><Value>sample-document-b2</Value></Property>
+        <Property qualifier="opendma" name="InProgress" type="reference"></Property>
+    </OdmaObject>
+    
+    <!-- Sample no-content Document -->
+
+    <OdmaObject classNamespace="tutorial" className="SampleDocument">
+        <Property qualifier="opendma" name="Id" type="id"><Value>sample-no-content-document</Value></Property>
+        <Property qualifier="opendma" name="Aspects" type="reference" multiValue="true"></Property>
+        <Property qualifier="opendma" name="Title" type="string"><Value>No Content</Value></Property>
+        <Property qualifier="opendma" name="Version" type="string"><Value>1.0</Value></Property>
+        <Property qualifier="opendma" name="VersionCollection" type="reference"><Value>sample-no-content-versioncollection</Value></Property>
+        <Property qualifier="opendma" name="ContentElements" type="reference" multiValue="true"></Property>
+        <Property qualifier="opendma" name="CombinedContentType" type="string"></Property>
+        <Property qualifier="opendma" name="PrimaryContentElement" type="reference"></Property>
+        <Property qualifier="opendma" name="CreatedAt" type="datetime"><Value>2010-01-01 00:00:00</Value></Property>
+        <Property qualifier="opendma" name="CreatedBy" type="string"><Value>SYSTEM</Value></Property>
+        <Property qualifier="opendma" name="LastModifiedAt" type="datetime"><Value>2010-01-01 00:00:00</Value></Property>
+        <Property qualifier="opendma" name="LastModifiedBy" type="string"><Value>SYSTEM</Value></Property>
+        <Property qualifier="opendma" name="CheckedOut" type="boolean"><Value>false</Value></Property>
+        <Property qualifier="opendma" name="CheckedOutAt" type="datetime"></Property>
+        <Property qualifier="opendma" name="CheckedOutBy" type="string"></Property>
+        <Property qualifier="opendma" name="ContainedIn" type="reference" multiValue="true"><Value>sample-folder-c</Value></Property>
+        <Property qualifier="opendma" name="ContainedInAssociations" type="reference" multiValue="true"><Value>sample-no-content-association</Value></Property>
+    </OdmaObject>
+
+    <OdmaObject classNamespace="tutorial" className="SampleAssociation">
+        <Property qualifier="opendma" name="Id" type="id"><Value>sample-no-content-association</Value></Property>
+        <Property qualifier="opendma" name="Aspects" type="reference" multiValue="true"></Property>
+        <Property qualifier="opendma" name="Name" type="string"><Value>NoContent</Value></Property>
+        <Property qualifier="opendma" name="Container" type="reference"><Value>sample-folder-c</Value></Property>
+        <Property qualifier="opendma" name="Containable" type="reference"><Value>sample-no-content-document</Value></Property>
+        <Property qualifier="opendma" name="CreatedAt" type="datetime"><Value>2010-01-01 00:00:00</Value></Property>
+        <Property qualifier="opendma" name="CreatedBy" type="string"><Value>SYSTEM</Value></Property>
+        <Property qualifier="opendma" name="LastModifiedAt" type="datetime"><Value>2010-01-01 00:00:00</Value></Property>
+        <Property qualifier="opendma" name="LastModifiedBy" type="string"><Value>SYSTEM</Value></Property>
+    </OdmaObject>
+
+    <OdmaObject classNamespace="tutorial" className="SampleVersionCollection">
+        <Property qualifier="opendma" name="Id" type="id"><Value>sample-no-content-versioncollection</Value></Property>
+        <Property qualifier="opendma" name="Aspects" type="reference" multiValue="true"></Property>
+        <Property qualifier="opendma" name="Versions" type="reference" multiValue="true"><Value>sample-no-content-document</Value></Property>
+        <Property qualifier="opendma" name="Latest" type="reference"><Value>sample-no-content-document</Value></Property>
+        <Property qualifier="opendma" name="Released" type="reference"><Value>sample-no-content-document</Value></Property>
+        <Property qualifier="opendma" name="InProgress" type="reference"></Property>
     </OdmaObject>
 
 </OdmaXmlRepository>
