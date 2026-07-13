@@ -34,6 +34,8 @@ LABEL org.opencontainers.image.title=$IMAGE_TITLE \
 WORKDIR /app
 
 COPY target/opendma-tutorial-rest-server-*.jar /app/app.jar
-COPY target/docker-extra/sample-content.bin /app/sample-content.bin
+COPY target/docker-extra/sample-content/sample-content.bin /app/sample-content/sample-content.bin
+COPY target/docker-extra/sample-content/sample-content.txt /app/sample-content/sample-content.txt
+COPY target/docker-extra/sample-content/opendma-spec-08.pdf /app/sample-content/opendma-spec-08.pdf
 
 ENTRYPOINT ["java", "-jar", "/app/app.jar"]

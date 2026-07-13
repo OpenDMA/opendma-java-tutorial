@@ -108,8 +108,15 @@
                         <configuration>
                             <target>
                                 <mkdir dir="${project.build.directory}/docker-extra"/>
-                                <copy file="${project.basedir}/../sample-content.bin"
-                                      tofile="${project.build.directory}/docker-extra/sample-content.bin"
+                                <mkdir dir="${project.build.directory}/docker-extra/sample-content"/>
+                                <copy file="${project.basedir}/../sample-content/sample-content.bin"
+                                      tofile="${project.build.directory}/docker-extra/sample-content/sample-content.bin"
+                                      overwrite="true"/>
+                                <copy file="${project.basedir}/../sample-content/sample-content.txt"
+                                      tofile="${project.build.directory}/docker-extra/sample-content/sample-content.txt"
+                                      overwrite="true"/>
+                                <copy file="${project.basedir}/../sample-content/opendma-spec-08.pdf"
+                                      tofile="${project.build.directory}/docker-extra/sample-content/opendma-spec-08.pdf"
                                       overwrite="true"/>
                             </target>
                         </configuration>
