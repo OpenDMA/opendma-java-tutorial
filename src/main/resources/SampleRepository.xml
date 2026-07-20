@@ -431,6 +431,8 @@
 
     <OdmaObject classNamespace="tutorial" className="SampleDocument">
         <Property qualifier="opendma" name="Id" type="id"><Value>hello-world-document</Value></Property>
+        <Property qualifier="opendma" name="VersionIndependentId" type="id"><Value>hello-world-document-version-independen</Value></Property>
+        <Property qualifier="opendma" name="VersionIndependentGuid" type="guid"><Value>hello-world-document-version-independen</Value></Property>
         <Property qualifier="opendma" name="Aspects" type="reference" multiValue="true"></Property>
         <Property qualifier="opendma" name="Title" type="string"><Value>Hello, World!</Value></Property>
         <Property qualifier="opendma" name="Version" type="string"><Value>1.0</Value></Property>
@@ -484,6 +486,8 @@
 
     <OdmaObject classNamespace="tutorial" className="SampleDocument">
         <Property qualifier="opendma" name="Id" type="id"><Value>opendma-spec-document</Value></Property>
+        <Property qualifier="opendma" name="VersionIndependentId" type="id"><Value>opendma-spec-document-version-independen</Value></Property>
+        <Property qualifier="opendma" name="VersionIndependentGuid" type="guid"><Value>opendma-spec-document-version-independen</Value></Property>
         <Property qualifier="opendma" name="Aspects" type="reference" multiValue="true"></Property>
         <Property qualifier="opendma" name="Title" type="string"><Value>OpenDMA Specification 0.8</Value></Property>
         <Property qualifier="opendma" name="Version" type="string"><Value>1.0</Value></Property>
@@ -537,6 +541,8 @@
 
     <OdmaObject classNamespace="tutorial" className="SampleDocument">
         <Property qualifier="opendma" name="Id" type="id"><Value>sample-document-a1</Value></Property>
+        <Property qualifier="opendma" name="VersionIndependentId" type="id"><Value>sample-document-a1-version-independen</Value></Property>
+        <Property qualifier="opendma" name="VersionIndependentGuid" type="guid"><Value>sample-document-a1-version-independen</Value></Property>
         <Property qualifier="opendma" name="Aspects" type="reference" multiValue="true"></Property>
         <Property qualifier="opendma" name="Title" type="string"><Value>Some Word file</Value></Property>
         <Property qualifier="opendma" name="Version" type="string"><Value>2.1</Value></Property>
@@ -579,6 +585,8 @@
 
     <OdmaObject classNamespace="tutorial" className="SampleDocument">
         <Property qualifier="opendma" name="Id" type="id"><Value>sample-document-a1-v20</Value></Property>
+        <Property qualifier="opendma" name="VersionIndependentId" type="id"><Value>sample-document-a1-version-independen</Value></Property>
+        <Property qualifier="opendma" name="VersionIndependentGuid" type="guid"><Value>sample-document-a1-version-independen</Value></Property>
         <Property qualifier="opendma" name="Aspects" type="reference" multiValue="true"></Property>
         <Property qualifier="opendma" name="Title" type="string"><Value>Some Word file</Value></Property>
         <Property qualifier="opendma" name="Version" type="string"><Value>2.0</Value></Property>
@@ -599,6 +607,8 @@
 
     <OdmaObject classNamespace="tutorial" className="SampleDocument">
         <Property qualifier="opendma" name="Id" type="id"><Value>sample-document-a1-v13</Value></Property>
+        <Property qualifier="opendma" name="VersionIndependentId" type="id"><Value>sample-document-a1-version-independen</Value></Property>
+        <Property qualifier="opendma" name="VersionIndependentGuid" type="guid"><Value>sample-document-a1-version-independen</Value></Property>
         <Property qualifier="opendma" name="Aspects" type="reference" multiValue="true"></Property>
         <Property qualifier="opendma" name="Title" type="string"><Value>Some Word file</Value></Property>
         <Property qualifier="opendma" name="Version" type="string"><Value>1.3</Value></Property>
@@ -619,6 +629,8 @@
 
     <OdmaObject classNamespace="tutorial" className="SampleDocument">
         <Property qualifier="opendma" name="Id" type="id"><Value>sample-document-a1-v12</Value></Property>
+        <Property qualifier="opendma" name="VersionIndependentId" type="id"><Value>sample-document-a1-version-independen</Value></Property>
+        <Property qualifier="opendma" name="VersionIndependentGuid" type="guid"><Value>sample-document-a1-version-independen</Value></Property>
         <Property qualifier="opendma" name="Aspects" type="reference" multiValue="true"></Property>
         <Property qualifier="opendma" name="Title" type="string"><Value>Some Word File</Value></Property>
         <Property qualifier="opendma" name="Version" type="string"><Value>1.2</Value></Property>
@@ -639,6 +651,8 @@
 
     <OdmaObject classNamespace="tutorial" className="SampleDocument">
         <Property qualifier="opendma" name="Id" type="id"><Value>sample-document-a1-v11</Value></Property>
+        <Property qualifier="opendma" name="VersionIndependentId" type="id"><Value>sample-document-a1-version-independen</Value></Property>
+        <Property qualifier="opendma" name="VersionIndependentGuid" type="guid"><Value>sample-document-a1-version-independen</Value></Property>
         <Property qualifier="opendma" name="Aspects" type="reference" multiValue="true"></Property>
         <Property qualifier="opendma" name="Title" type="string"><Value>Some file</Value></Property>
         <Property qualifier="opendma" name="Version" type="string"><Value>1.1</Value></Property>
@@ -659,6 +673,8 @@
 
     <OdmaObject classNamespace="tutorial" className="SampleDocument">
         <Property qualifier="opendma" name="Id" type="id"><Value>sample-document-a1-v10</Value></Property>
+        <Property qualifier="opendma" name="VersionIndependentId" type="id"><Value>sample-document-a1-version-independen</Value></Property>
+        <Property qualifier="opendma" name="VersionIndependentGuid" type="guid"><Value>sample-document-a1-version-independen</Value></Property>
         <Property qualifier="opendma" name="Aspects" type="reference" multiValue="true"></Property>
         <Property qualifier="opendma" name="Title" type="string"><Value>Soeme File</Value></Property>
         <Property qualifier="opendma" name="Version" type="string"><Value>1.0</Value></Property>
@@ -690,6 +706,8 @@
 
     <OdmaObject classNamespace="tutorial" className="SampleDocument">
         <Property qualifier="opendma" name="Id" type="id"><Value>sample-document-a2</Value></Property>
+        <Property qualifier="opendma" name="VersionIndependentId" type="id"><Value>sample-document-a2-version-independen</Value></Property>
+        <Property qualifier="opendma" name="VersionIndependentGuid" type="guid"><Value>sample-document-a2-version-independen</Value></Property>
         <Property qualifier="opendma" name="Aspects" type="reference" multiValue="true"></Property>
         <Property qualifier="opendma" name="Title" type="string"><Value>Some Movie</Value></Property>
         <Property qualifier="opendma" name="Version" type="string"><Value>1.0</Value></Property>
@@ -808,6 +826,8 @@
 
     <OdmaObject classNamespace="tutorial" className="SampleDocument">
         <Property qualifier="opendma" name="Id" type="id"><Value>sample-document-b1</Value></Property>
+        <Property qualifier="opendma" name="VersionIndependentId" type="id"><Value>sample-document-b1-version-independen</Value></Property>
+        <Property qualifier="opendma" name="VersionIndependentGuid" type="guid"><Value>sample-document-b1-version-independen</Value></Property>
         <Property qualifier="opendma" name="Aspects" type="reference" multiValue="true"></Property>
         <Property qualifier="opendma" name="Title" type="string"><Value>Another Word file</Value></Property>
         <Property qualifier="opendma" name="Version" type="string"><Value>1.0</Value></Property>
@@ -861,6 +881,8 @@
 
     <OdmaObject classNamespace="tutorial" className="SampleDocument">
         <Property qualifier="opendma" name="Id" type="id"><Value>sample-document-b2</Value></Property>
+        <Property qualifier="opendma" name="VersionIndependentId" type="id"><Value>sample-document-b2-version-independen</Value></Property>
+        <Property qualifier="opendma" name="VersionIndependentGuid" type="guid"><Value>sample-document-b2-version-independen</Value></Property>
         <Property qualifier="opendma" name="Aspects" type="reference" multiValue="true"></Property>
         <Property qualifier="opendma" name="Title" type="string"><Value>Another Movie</Value></Property>
         <Property qualifier="opendma" name="Version" type="string"><Value>1.0</Value></Property>
@@ -914,6 +936,8 @@
 
     <OdmaObject classNamespace="tutorial" className="SampleDocument">
         <Property qualifier="opendma" name="Id" type="id"><Value>sample-no-content-document</Value></Property>
+        <Property qualifier="opendma" name="VersionIndependentId" type="id"><Value>sample-no-content-document-version-independen</Value></Property>
+        <Property qualifier="opendma" name="VersionIndependentGuid" type="guid"><Value>sample-no-content-document-version-independen</Value></Property>
         <Property qualifier="opendma" name="Aspects" type="reference" multiValue="true"></Property>
         <Property qualifier="opendma" name="Title" type="string"><Value>No Content</Value></Property>
         <Property qualifier="opendma" name="Version" type="string"><Value>1.0</Value></Property>
